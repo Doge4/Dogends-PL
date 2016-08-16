@@ -1,0 +1,74 @@
+name: Dogends
+main: me.woulfiee.server.Dogends
+version: 1.5
+authors: ["Woulfiee"]
+description: Main plugin of the Dogends server by Doge3.
+commands:
+    ann:
+      description: Oglasza wiadomosc.
+    setrank:
+      description: Ustawia okreslona range dla danego gracza.
+    cc:
+      description: Czysci czat.
+    spawn:
+      description: Teleportuje gracza na spawn.
+    tcc:
+      description: Wlacza i wylacza cenzure.
+    ban:
+      description: Banuje gracza.
+    kick:
+      description: Wyrzuca gracza.
+    mute:
+      description: Wycisza gracza.
+    feed:
+      description: Karmi gracza.
+    heal:
+      description: Leczy gracza.
+    gamemode:
+      description: Ustawia tryb gry.
+      aliases: ["gm"]
+    gms:
+      description: Ustawia tryb gry.
+    gmc:
+      description: Ustawia tryb gry.
+    gmsp:
+      description: Ustawia tryb gry.
+    tp:
+      description: Teleportuje gracza do gracza lub na podane koordynaty.
+    tb:
+      description: Wlacza i wylacza automatyczne wiadomosci.
+    tps:
+      description: Wyswiela TPS.
+    unban:
+      description: Odbanowuje gracza.
+    mod:
+      description: Wyswietla liste przywilejow dla rangi Moderator. 
+    vip:
+      description: Wyswietla liste przywilejow dla rangi VIP.
+    login:
+      description: Pozwala ci sie zalogowac.
+      aliases: ["l"]
+    register:
+      description: Pozwala ci sie zarejestrowac.
+    world:
+      description: Tworzy swiaty.
+    wgoto:
+      description: Teleportuje gracza do swiata.
+    op:
+      description: Ustanawia gracza operatorem.
+    deop:
+      description: Odbiera uprawnienia operatora.
+    vanish:
+      description: Pojawiam sie i znikam.
+      aliases: ["v"]
+    msg:
+      description: Wysyla prywatna wiadomosc.
+      aliases: ["pw"]
+    reply:
+      description: Odpowiadasz na wiadomosc prywatna.
+      aliases: ["r"]
+    dzialka:
+      description: Dzialki.
+      aliases: ["d", "dzialki", "plots", "plot", "p"]
+      
+      
