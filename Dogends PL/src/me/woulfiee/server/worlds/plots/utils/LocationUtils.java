@@ -9,12 +9,10 @@ import org.bukkit.Location;
  */
 public class LocationUtils {
 
-	private int pathWidthWithSlabs = 7;
-	private int plotSize = 48;
+	private static int pathWidthWithSlabs = 7;
+	private static int plotSize = 48;
 	private static int row;
 	private static int maxPlotsInRow;
-	private double x;
-	private double z;
 	private static int id;
 
 	public static int getRow(int id) {
@@ -24,13 +22,17 @@ public class LocationUtils {
 	public static int getMaxPlotsInRow(int row1) {
 		maxPlotsInRow = 3;
 		if (row1 >= 2)
-			for (row = 2; row <= row1; row++) {
+			for (row = 2; row < row1; row++) {
 				maxPlotsInRow += 2;
 			}
 		return maxPlotsInRow;
 	}
 
-	public static int getRowByMaxPlotsQuantity(int plotsInRow) {
+	public static int getMaxRowLength(int maxPlotsInRow) {
+		return (maxPlotsInRow * plotSize + ((maxPlotsInRow - 1) * pathWidthWithSlabs));
+	}
+
+	public static int getRowByMaxPlotsInRow(int maxPlotsInRow) {
 		return row;
 	}
 

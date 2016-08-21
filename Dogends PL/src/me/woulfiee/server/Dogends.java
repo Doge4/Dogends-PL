@@ -1,16 +1,5 @@
 package me.woulfiee.server;
 
-import me.woulfiee.server.broadcast.Broadcaster;
-import me.woulfiee.server.chat.censor.Censor;
-import me.woulfiee.server.listeners.AntiGrief;
-import me.woulfiee.server.motd.Appearance;
-import me.woulfiee.server.startup.ConfigSetup;
-import me.woulfiee.server.startup.LoadCommands;
-import me.woulfiee.server.startup.LoadListeners;
-import me.woulfiee.server.tps.Lag;
-import me.woulfiee.server.worlds.plots.plotsgenerator.PlotsGenerator;
-import me.woulfiee.server.worlds.utils.LoadWorlds;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -19,6 +8,17 @@ import java.sql.SQLException;
 import org.bukkit.Bukkit;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import me.woulfiee.server.broadcast.Broadcaster;
+import me.woulfiee.server.chat.censor.Censor;
+import me.woulfiee.server.listeners.AntiGrief;
+import me.woulfiee.server.motd.Appearance;
+import me.woulfiee.server.startup.LoadCommands;
+import me.woulfiee.server.startup.LoadListeners;
+import me.woulfiee.server.tps.Lag;
+import me.woulfiee.server.worlds.plots.plotsgenerator.PlotsGenerator;
+import me.woulfiee.server.worlds.utils.CreateWorld;
+import me.woulfiee.server.worlds.utils.LoadWorlds;
 
 /**
  * 
@@ -41,8 +41,6 @@ public class Dogends extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		Dogends.plugin = this;
-		ConfigSetup.swearWords = ConfigSetup.getSwearsConfig();
-		ConfigSetup.reloadSwearsConfig();
 		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Lag(), 100L, 1L);
 		Censor.toggle.add("on");
 		AntiGrief.basifm.add("on");
@@ -59,6 +57,7 @@ public class Dogends extends JavaPlugin {
 		Broadcaster.runBroadcast();
 		AntiGrief.blockDaynightCycle();
 		LoadWorlds.loadWorlds();
+		CreateWorld.createPlotWorld();
 		// try {
 		// loadData();
 		// } catch (SQLException e) {
@@ -74,7 +73,6 @@ public class Dogends extends JavaPlugin {
 		// e.printStackTrace();
 		// }
 		saveConfig();
-		ConfigSetup.saveSwearsConfig();
 	}
 
 	@SuppressWarnings("unused")

@@ -27,13 +27,13 @@ public class Rules implements Listener {
 						if (block.getType() == Material.SIGN_POST || block.getType() == Material.WALL_SIGN) {
 							StringBuilder builder = new StringBuilder(
 									StringUtils.center("§6 REGULY ", 240, "§e§m-") + "\n");
-							builder.append("§61. §7Obrazanie graczy, jak i administracji jest zakazane.\n");
+							builder.append("§61. §eObrazanie graczy, jak i administracji jest zakazane.\n");
 							builder.append(
-									"§62. §7Korzystanie z jakichkolwiek cheatow i zhackowanych klientow jest zabronione i grozi banem.\n");
+									"§62. §eKorzystanie z jakichkolwiek cheatow i zhackowanych klientow jest zabronione i grozi banem.\n");
 							builder.append(
-									"§63. §7Nadmierne spamowanie, przeklinanie na czacie jest niedopuszczalne i rowniez grozi banem. Przy czym jakakolwiek proba obejscia cenzury skutkuje wyciszeniem.\n");
+									"§63. §eNadmierne spamowanie, przeklinanie na czacie jest niedopuszczalne i rowniez grozi banem. Przy czym jakakolwiek proba obejscia cenzury skutkuje wyciszeniem.\n");
 							builder.append(
-									"§64. §7Moderatorzy nie zawsze maja racje. Jesli uwazasz, ze nieslusznie dostales bana skontaktuj sie z administratorem.\n");
+									"§64. §eModeratorzy nie zawsze maja racje. Jesli uwazasz, ze nieslusznie dostales bana skontaktuj sie z administratorem.\n");
 							e.getPlayer().sendMessage(builder.toString());
 
 						}

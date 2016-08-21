@@ -22,8 +22,8 @@ public class PathPopulator extends BlockPopulator {
 				int x = chunkX + cx;
 				int y = 64;
 				int z = chunkZ + cz;
-				if ((x % 48 == 0) && ((z - 2) % 48 != 0) && ((z - 1) % 48 != 0) && (z % 48 != 0) && ((z + 1) % 48 != 0)
-						&& ((z + 2) % 48 != 0)) {
+				if ((x % 55 == 0) && ((z - 2) % 55 != 0) && ((z - 1) % 55 != 0) && (z % 55 != 0) && ((z + 1) % 55 != 0)
+						&& ((z + 2) % 55 != 0)) {
 					world.getBlockAt(x - 2, y, z).setType(Material.GRAVEL);
 					world.getBlockAt(x - 1, y, z).setType(Material.GRAVEL);
 					world.getBlockAt(x, y, z).setType(Material.GRAVEL);
@@ -35,8 +35,8 @@ public class PathPopulator extends BlockPopulator {
 					world.getBlockAt(x - 3, y + 1, z).setType(Material.STEP);
 					world.getBlockAt(x + 3, y + 1, z).setType(Material.STEP);
 				}
-				if ((z % 48 == 0) && ((x - 2) % 48 != 0) && ((x - 1) % 48 != 0) && (x % 48 != 0) && ((x + 1) % 48 != 0)
-						&& ((x + 2) % 48 != 0)) {
+				if ((z % 55 == 0) && ((x - 2) % 55 != 0) && ((x - 1) % 55 != 0) && (x % 55 != 0) && ((x + 1) % 55 != 0)
+						&& ((x + 2) % 55 != 0)) {
 					world.getBlockAt(x, y, z - 2).setType(Material.GRAVEL);
 					world.getBlockAt(x, y, z - 1).setType(Material.GRAVEL);
 					world.getBlockAt(x, y, z).setType(Material.GRAVEL);
@@ -48,19 +48,17 @@ public class PathPopulator extends BlockPopulator {
 					world.getBlockAt(x, y + 1, z - 3).setType(Material.STEP);
 					world.getBlockAt(x, y + 1, z + 3).setType(Material.STEP);
 				}
-				if ((x % 48 == 0) && (z % 48 == 0)) {
-					world.getBlockAt(x, y - 1, z).setType(Material.REDSTONE_TORCH_ON);
+				if ((x % 55 == 0) && (z % 55 == 0)) {
+					world.getBlockAt(x, y, z).setType(Material.GRAVEL);
+					world.getBlockAt(x + 1, y, z).setType(Material.GRAVEL);
+					world.getBlockAt(x - 1, y, z).setType(Material.GRAVEL);
+					world.getBlockAt(x, y, z + 1).setType(Material.GRAVEL);
+					world.getBlockAt(x, y, z - 1).setType(Material.GRAVEL);
 
-					world.getBlockAt(x, y, z).setType(Material.REDSTONE_LAMP_ON);
-					world.getBlockAt(x + 1, y, z).setType(Material.REDSTONE_LAMP_ON);
-					world.getBlockAt(x - 1, y, z).setType(Material.REDSTONE_LAMP_ON);
-					world.getBlockAt(x, y, z + 1).setType(Material.REDSTONE_LAMP_ON);
-					world.getBlockAt(x, y, z - 1).setType(Material.REDSTONE_LAMP_ON);
-
-					world.getBlockAt(x + 1, y, z + 1).setType(Material.GLOWSTONE);
-					world.getBlockAt(x + 1, y, z - 1).setType(Material.GLOWSTONE);
-					world.getBlockAt(x - 1, y, z + 1).setType(Material.GLOWSTONE);
-					world.getBlockAt(x - 1, y, z - 1).setType(Material.GLOWSTONE);
+					world.getBlockAt(x + 1, y, z + 1).setType(Material.GRAVEL);
+					world.getBlockAt(x + 1, y, z - 1).setType(Material.GRAVEL);
+					world.getBlockAt(x - 1, y, z + 1).setType(Material.GRAVEL);
+					world.getBlockAt(x - 1, y, z - 1).setType(Material.GRAVEL);
 
 					world.getBlockAt(x + 2, y, z + 2).setType(Material.GRAVEL);
 					world.getBlockAt(x + 2, y, z - 2).setType(Material.GRAVEL);

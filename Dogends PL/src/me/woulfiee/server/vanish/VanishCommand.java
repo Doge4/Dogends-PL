@@ -1,19 +1,16 @@
 package me.woulfiee.server.vanish;
 
-import me.woulfiee.server.chat.ranks.Ranks;
-import me.woulfiee.server.scoreboard.Sb;
-import me.woulfiee.server.scoreboard.ScoreboardUpdateType;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerPickupItemEvent;
+
+import me.woulfiee.server.chat.ranks.Ranks;
+import me.woulfiee.server.scoreboard.Sb;
+import me.woulfiee.server.scoreboard.ScoreboardUpdateType;
 
 /**
  * 
@@ -22,7 +19,7 @@ import org.bukkit.event.player.PlayerPickupItemEvent;
  */
 public class VanishCommand implements CommandExecutor {
 
-	public static List<String> vanished = new ArrayList<String>();
+	public static HashSet<String> vanished = new HashSet<String>();
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -34,6 +31,7 @@ public class VanishCommand implements CommandExecutor {
 						if (!vanished.contains(player.getName())) {
 							vanished.add(player.getName());
 							player.setPlayerListName(null);
+							player.setCanPickupItems(false);
 							player.sendMessage("§6[Vanish] §aStales sie niewidoczny!");
 							for (Player online : Bukkit.getOnlinePlayers()) {
 								online.hidePlayer(player);
@@ -42,6 +40,7 @@ public class VanishCommand implements CommandExecutor {
 						} else {
 							vanished.remove(player.getName());
 							player.setPlayerListName(player.getName());
+							player.setCanPickupItems(true);
 							player.sendMessage("§6[Vanish] §aStales sie widoczny!");
 							for (Player online : Bukkit.getOnlinePlayers()) {
 								online.showPlayer(player);
@@ -54,6 +53,7 @@ public class VanishCommand implements CommandExecutor {
 							if (!vanished.contains(targetPlayer.getName())) {
 								targetPlayer.setPlayerListName(null);
 								vanished.add(targetPlayer.getName());
+								targetPlayer.setCanPickupItems(false);
 								player.sendMessage("§6[Vanish] §aGracz stal sie niewidoczny!");
 								targetPlayer.sendMessage("§6[Vanish] §aStales sie niewidoczny!");
 								for (Player online : Bukkit.getOnlinePlayers()) {
@@ -63,6 +63,7 @@ public class VanishCommand implements CommandExecutor {
 							} else {
 								vanished.remove(targetPlayer.getName());
 								targetPlayer.setPlayerListName(targetPlayer.getName());
+								targetPlayer.setCanPickupItems(true);
 								player.sendMessage("§6[Vanish] §aGracz stal sie widoczny!");
 								targetPlayer.sendMessage("§6[Vanish] §aStales sie widoczny!");
 								for (Player online : Bukkit.getOnlinePlayers()) {
@@ -82,6 +83,7 @@ public class VanishCommand implements CommandExecutor {
 						if (!vanished.contains(targetPlayer.getName())) {
 							targetPlayer.setPlayerListName(null);
 							vanished.add(targetPlayer.getName());
+							targetPlayer.setCanPickupItems(false);
 							sender.sendMessage("§6[Vanish] §aGracz stal sie niewidoczny!");
 							targetPlayer.sendMessage("§6[Vanish] §aStales sie niewidoczny!");
 							for (Player online : Bukkit.getOnlinePlayers()) {
@@ -91,6 +93,7 @@ public class VanishCommand implements CommandExecutor {
 						} else {
 							vanished.remove(targetPlayer.getName());
 							targetPlayer.setPlayerListName(targetPlayer.getName());
+							targetPlayer.setCanPickupItems(true);
 							sender.sendMessage("§6[Vanish] §aGracz stal sie widoczny!");
 							targetPlayer.sendMessage("§6[Vanish] §aStales sie widoczny!");
 							for (Player online : Bukkit.getOnlinePlayers()) {
@@ -107,13 +110,6 @@ public class VanishCommand implements CommandExecutor {
 			}
 		}
 		return false;
-	}
-
-	@EventHandler
-	public void pickupItems(PlayerPickupItemEvent e) {
-		if (e.getPlayer().getWorld().getName().equals("spawn")) {
-			e.setCancelled(true);
-		}
 	}
 
 }

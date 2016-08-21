@@ -24,14 +24,19 @@ public class GoToCommand implements CommandExecutor {
 				Player player = (Player) sender;
 				if (Ranks.isStaff(player) || Ranks.isBuilder(player)) {
 					if (args.length == 1) {
-						World world = Bukkit.getWorld(args[0]);
-						if (world != null) {
-							player.teleport(new Location(world, world.getSpawnLocation().getX(),
-									world.getSpawnLocation().getY(), world.getSpawnLocation().getZ()));
-							player.sendMessage(
-									"§6[TP] §aZostales przeteleportowany do swiata §e" + world.getName() + "§a!");
+						if (args[0].equalsIgnoreCase("plots")) {
+							World world = Bukkit.getWorld("plots");
+							player.teleport(new Location(world, 0.5, 65, 0.5));
 						} else {
-							player.sendMessage("§6[TP] §cTen swiat nie istnieje!");
+							World world = Bukkit.getWorld(args[0]);
+							if (world != null) {
+								player.teleport(new Location(world, world.getSpawnLocation().getX(),
+										world.getSpawnLocation().getY(), world.getSpawnLocation().getZ()));
+								player.sendMessage(
+										"§6[TP] §aZostales przeteleportowany do swiata §e" + world.getName() + "§a!");
+							} else {
+								player.sendMessage("§6[TP] §cTen swiat nie istnieje!");
+							}
 						}
 					} else if (args.length >= 2) {
 						Player targetPlayer = Bukkit.getPlayer(args[1]);

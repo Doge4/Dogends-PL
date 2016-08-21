@@ -168,7 +168,7 @@ public class Sb {
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
 
 			for (Player online : Bukkit.getServer().getOnlinePlayers())
-				PacketUtils.sendTabHF(online, "§6§lDOGENDS", "\n§eNasza strona internetowa jest w budowie!\n Niedlugo bedzie dostepna! :)");
+				PacketUtils.sendTabHF(online, "§6§lDOGENDS", "§eNasza strona internetowa jest w budowie!\n Niedlugo bedzie dostepna! :)");
 
 			p.setScoreboard(getScoreboard(p));
 		}

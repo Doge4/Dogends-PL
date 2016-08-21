@@ -3,6 +3,7 @@ package me.woulfiee.server.worlds.plots.commands;
 import me.woulfiee.server.Dogends;
 import me.woulfiee.server.worlds.plots.utils.LocationUtils;
 import me.woulfiee.server.worlds.plots.utils.Plot;
+import me.woulfiee.server.worlds.plots.utils.PlotManager;
 
 import java.util.List;
 
@@ -47,8 +48,9 @@ public class PlotCommand implements CommandExecutor {
 						if (Dogends.getMain().getConfig().contains(plotName)) {
 							List<String> plots = Dogends.getMain().getConfig().getStringList("Plots");
 							int id = plots.size() + 1;
-							new Plot(id, LocationUtils.getMinX(id), LocationUtils.getMinZ(id), LocationUtils.getMaxX(id),
-									LocationUtils.getMaxZ(id), player.getName(), null, null, true, false);
+							Plot plot = new Plot(id, LocationUtils.getMinX(id), LocationUtils.getMinZ(id), LocationUtils.getMaxX(id),
+									LocationUtils.getMaxZ(id), player.getName(), null, true, false);
+							PlotManager.createPlot(plot);
 						}
 					}
 				} else {

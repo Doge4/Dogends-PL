@@ -1,6 +1,6 @@
 package me.woulfiee.server.worlds.plots.utils;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * 
@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Plot {
 
-	private List<String> helpers;
+	private Set<String> helpers;
 	private int id;
 	private boolean isFinished;
 	private boolean isPublic;
@@ -18,23 +18,21 @@ public class Plot {
 	private double minX;
 	private double minZ;
 	private String ownerName;
-	private String plotDescription;
 
-	public Plot(int id, double minX, double minZ, double maxX, double maxZ, String ownerName, String plotDescription,
-			List<String> helpers, boolean isPublic, boolean isFinished) {
+	public Plot(int id, double minX, double minZ, double maxX, double maxZ, String ownerName,
+			Set<String> helpers, boolean isPublic, boolean isFinished) {
 		this.id = id;
 		this.minX = minX;
 		this.minZ = minZ;
 		this.maxX = maxX;
 		this.maxZ = maxZ;
 		this.ownerName = ownerName;
-		this.plotDescription = plotDescription;
 		this.helpers = helpers;
 		this.isPublic = isPublic;
 		this.isFinished = isFinished;
 	}
 
-	public List<String> getHelpers() {
+	public Set<String> getHelpers() {
 		return helpers;
 	}
 
@@ -62,10 +60,6 @@ public class Plot {
 		return ownerName;
 	}
 
-	public String getPlotDescription() {
-		return plotDescription;
-	}
-
 	public boolean isFinished() {
 		return isFinished;
 	}
@@ -78,7 +72,7 @@ public class Plot {
 		this.isFinished = isFinished;
 	}
 
-	public void setHelpers(List<String> helpers) {
+	public void setHelpers(Set<String> helpers) {
 		this.helpers = helpers;
 	}
 
@@ -104,10 +98,6 @@ public class Plot {
 
 	public void setOwnerName(String ownerName) {
 		this.ownerName = ownerName;
-	}
-
-	public void setPlotDescription(String plotDescription) {
-		this.plotDescription = plotDescription;
 	}
 
 	public void setPublic(boolean isPublic) {

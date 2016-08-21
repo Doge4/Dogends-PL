@@ -12,17 +12,17 @@ import java.util.Set;
  */
 public class PlotManager {
 	
-	private Set<Plot> plots;
+	private static Set<Plot> plots;
 
     public PlotManager() {
         plots = new HashSet<>();
     }
 
-    public void createPlot(Plot plot) {
+    public static void createPlot(Plot plot) {
         plots.add(plot);
     }
 
-    public void removePlot(Plot plot) {
+    public static void removePlot(Plot plot) {
         plots.remove(plot);
     }
 

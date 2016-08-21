@@ -1,8 +1,5 @@
 package me.woulfiee.server.listeners;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
-
 import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
@@ -19,6 +16,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
+import org.bukkit.event.block.BlockGrowEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.block.LeavesDecayEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent;
@@ -32,6 +30,9 @@ import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -49,6 +50,13 @@ public class AntiGrief implements Listener, CommandExecutor {
 	public static ArrayList<String> bpe = new ArrayList<String>();
 	public static ArrayList<String> bpp = new ArrayList<String>();
 	public static ArrayList<String> bwc = new ArrayList<String>();
+	
+	@EventHandler
+	public void cactusGrow(BlockGrowEvent e) {
+		if(e.getBlock().getType() == Material.CACTUS) {
+			e.setCancelled(true);
+		}
+	}
 
 	/**
 	 * Blocks daylight cycle - the sun and moon can't move

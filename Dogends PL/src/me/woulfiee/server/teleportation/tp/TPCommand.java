@@ -30,7 +30,7 @@ public class TPCommand implements CommandExecutor {
 							p.teleport(targetPlayerLocation);
 							p.sendMessage("§6[TP] §aZostales przeteleportowany do §e" + targetPlayer.getName() + "§e!");
 						} else {
-							p.sendMessage("§6[TP] §e" + targetPlayer.getName() + " §cnie jest online!");
+							p.sendMessage("§6[TP] §cGracz §e" + targetPlayer.getName() + " §cnie jest online!");
 						}
 					} else if (args.length == 2) {
 						Player player = p.getServer().getPlayer(args[0]);
@@ -42,10 +42,10 @@ public class TPCommand implements CommandExecutor {
 								player.teleport(targetPlayerLocation);
 								p.sendMessage("§6[TP] §e" + player.getName() + " §azostal przeteleportowany do §e"
 										+ targetPlayer.getName() + "§e!");
-								player.sendMessage("§6[TP] §aZostales przeteleportowany do to §e"
+								player.sendMessage("§6[TP] §aZostales przeteleportowany do §e"
 										+ targetPlayer.getName() + "§a!");
 								targetPlayer.sendMessage(
-										"§6[TP] §e" + player.getName() + " §ezostal przeteleportowany do §eCiebie§a!");
+										"§6[TP] §e" + player.getName() + " §azostal przeteleportowany do §eCiebie§a!");
 							} else {
 								p.sendMessage("§6[TP] §e" + targetPlayer.getName() + " §cnie jest online!");
 							}
@@ -97,7 +97,7 @@ public class TPCommand implements CommandExecutor {
 							player.sendMessage(
 									"§6[TP] §aZostales przeteleportowany do §e" + targetPlayer.getName() + "§a!");
 							targetPlayer.sendMessage(
-									"§6[TP] §e" + player.getName() + " §ezostal przeteleportowany do §eCiebie§a!");
+									"§6[TP] §e" + player.getName() + " §azostal przeteleportowany do §eCiebie§a!");
 						} else {
 							sender.sendMessage("[TP] §e" + targetPlayer.getName() + " §cnie jest online!");
 						}
