@@ -1,8 +1,8 @@
 name: Dogends
 main: me.woulfiee.server.Dogends
 version: 1.5
-authors: ["Woulfiee"]
-description: Main plugin of the Dogends server by Doge3.
+authors: ["Woulfiee", "Milky_way2"]
+description: Glowny plugin serwera Dogends. Zrobiony przez Woulfiee i Milky_way2
 commands:
     ann:
       description: Oglasza wiadomosc.
@@ -70,5 +70,30 @@ commands:
     dzialka:
       description: Dzialki.
       aliases: ["d", "dzialki", "plots", "plot", "p"]
+    helpop:
+      description: HelpOP!
+      aliases: ["a", "pomoc"]
+    helpopreply:
+      description: Odpowiadasz na wiadomosc HelpOP
+    togglebuilding:
+      description: Przelacza budowanie.
+    toggleexplosion:
+      description: Przelacza eksplozje.
+    togglepve:
+      description: Przelacza pve.
+    togglepvp:
+      description: Przelacza pvp.
+    toggleleafdecay:
+      description: Przelacza obumieranie lisci.
+    togglearmorstand:
+      description: Przelacza manipulacje stojakami i ramkami.
+    toggleweatherchange:
+      description: Przelacza mozliwosc zmiany pogody.
+    toggleblockgrow:
+      description: Przelacza mozliwosc wzrostu blokow.
+    toggledaynightcycle:
+      description: Przelacza mozliwosc zmiany pory dnia.
+    togglemobspawn:
+      description: Przelacza mozliwosc spawnowania sie mobow.
       
       

@@ -20,6 +20,7 @@ import me.woulfiee.server.msg.MSGCommand;
 import me.woulfiee.server.mute.MuteCommand;
 import me.woulfiee.server.op.DeOPCommand;
 import me.woulfiee.server.op.OPCommand;
+import me.woulfiee.server.reports.HelpOP;
 import me.woulfiee.server.tab.TabCompletion;
 import me.woulfiee.server.teleportation.spawn.Spawn;
 import me.woulfiee.server.teleportation.tp.TPCommand;
@@ -72,6 +73,18 @@ public class LoadCommands {
 		Dogends.getMain().getCommand("msg").setExecutor(new MSGCommand());
 		Dogends.getMain().getCommand("reply").setExecutor(new MSGCommand());
 		Dogends.getMain().getCommand("dzialka").setExecutor(new PlotCommand());
+		Dogends.getMain().getCommand("helpop").setExecutor(new HelpOP());
+		Dogends.getMain().getCommand("helpopreply").setExecutor(new HelpOP());
+		Dogends.getMain().getCommand("togglebuilding").setExecutor(new CWCommand());
+		Dogends.getMain().getCommand("toggleexplosion").setTabCompleter(new TabCompletion());
+		Dogends.getMain().getCommand("togglepve").setExecutor(new GoToCommand());
+		Dogends.getMain().getCommand("togglepvp").setTabCompleter(new TabCompletion());
+		Dogends.getMain().getCommand("toggleleafdecay").setExecutor(new OPCommand());
+		Dogends.getMain().getCommand("togglearmorstand").setExecutor(new DeOPCommand());
+		Dogends.getMain().getCommand("toggleweatherchange").setExecutor(new VanishCommand());
+		Dogends.getMain().getCommand("toggleblockgrow").setExecutor(new MSGCommand());
+		Dogends.getMain().getCommand("toggledaynightcycle").setExecutor(new MSGCommand());
+		Dogends.getMain().getCommand("togglemobspawn").setExecutor(new PlotCommand());
 	}
 
 }

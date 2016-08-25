@@ -4,7 +4,6 @@ import static org.apache.commons.lang3.StringUtils.center;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
@@ -36,11 +35,11 @@ public class Appearance {
 				WrappedServerPing packet = event.getPacket().getServerPings().read(0);
 				// packet.setMotD(center("§6§lDOGENDS\n" + center("§e§lPIERWSZA
 				// EDYCJA", 52), (int) 117.385));
-				packet.setMotD(center("§6§lDOGENDS\n" + center("§8⎜§e███████████████§7█████§8⎜ §6§l75%", 50), 117));
+				packet.setMotD(center("§6§lDOGENDS\n" + center("§8⎜§e█████████████████§7███§8⎜ §6§l85%", 50), 117));
 				List<WrappedGameProfile> message = new ArrayList<WrappedGameProfile>();
 				message.add(new WrappedGameProfile("0", "§eDzieki za dodanie serwera na liste!"));
 				message.add(new WrappedGameProfile("1", center("§eWersja: 1.8.8", 42)));
-				message.add(new WrappedGameProfile("2", center("§eSerwer gotowy w §a75%", 42)));
+				message.add(new WrappedGameProfile("2", center("§eSerwer gotowy w §a85%", 42)));
 				packet.setPlayers(message);
 				packet.setVersionProtocol(3);
 				packet.setVersionName("§6Online: §e" + packet.getPlayersOnline() + "§8/§e" + packet.getPlayersMaximum());

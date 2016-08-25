@@ -21,33 +21,39 @@ public class ToggleCensor implements CommandExecutor {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
 				if (Ranks.isStaff(player)) {
-					if (Censor.toggle.contains("on")) {
-						Censor.toggle.clear();
-						for (Player p : Bukkit.getOnlinePlayers())
-							if (Ranks.getAdmins().contains(p.getUniqueId().toString())
-									|| Ranks.getMods().contains(p.getUniqueId().toString())
-									|| Ranks.getOwners().contains(p.getUniqueId().toString())) {
+					if (Censor.toggledOn) {
+						Censor.toggledOn = false;
+						for (Player p : Bukkit.getOnlinePlayers()) {
+							if (Ranks.isStaff(p)) {
 								p.sendMessage("§6[Chat] §cCenzura wylaczona!");
 							}
+						}
 					} else {
-						Censor.toggle.add("on");
-						sender.sendMessage("§6[Chat] §aCenzura wlaczona!");
+						Censor.toggledOn = true;
+						for (Player p : Bukkit.getOnlinePlayers()) {
+							if (Ranks.isStaff(p)) {
+								sender.sendMessage("§6[Chat] §aCenzura wlaczona!");
+							}
+						}
 					}
 				} else {
-					sender.sendMessage("§6[Chat] §cnie masz pozwolenia!");
+					sender.sendMessage("§6[Chat] §cNie masz pozwolenia!");
 				}
 			} else {
-				if (Censor.toggle.contains("on")) {
-					Censor.toggle.clear();
-					for (Player p : Bukkit.getOnlinePlayers())
-						if (Ranks.getAdmins().contains(p.getUniqueId().toString())
-								|| Ranks.getMods().contains(p.getUniqueId().toString())
-								|| Ranks.getOwners().contains(p.getUniqueId().toString())) {
+				if (Censor.toggledOn) {
+					Censor.toggledOn = false;
+					for (Player p : Bukkit.getOnlinePlayers()) {
+						if (Ranks.isStaff(p)) {
 							p.sendMessage("§6[Chat] §cCenzura wylaczona!");
 						}
+					}
 				} else {
-					Censor.toggle.add("on");
-					sender.sendMessage("§6[Chat] §aCenzura wlaczona!");
+					Censor.toggledOn = true;
+					for (Player p : Bukkit.getOnlinePlayers()) {
+						if (Ranks.isStaff(p)) {
+							sender.sendMessage("§6[Chat] §aCenzura wlaczona!");
+						}
+					}
 				}
 			}
 		}

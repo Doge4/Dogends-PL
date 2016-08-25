@@ -36,14 +36,12 @@ public class MSGCommand implements CommandExecutor {
 						if (targetPlayer != null) {
 							player.sendMessage("§6§lTy -> " + targetPlayer.getName() + " >> §e§l" + randomMessage);
 							targetPlayer.sendMessage("§6§l" + player.getName() + " -> Ty >> §e§l" + randomMessage);
-							lastmsgto.remove(player.getName());
-							lastmsgto.put(player.getName(), targetPlayer.getName());
+							lastmsgto.replace(player.getName(), targetPlayer.getName());
 						}
 					} else {
 						player.sendMessage("§6§lTy -> Konsola >> §e§l" + randomMessage);
 						System.out.println(player.getName() + " -> Ty >> " + randomMessage);
-						lastmsgto.remove(player.getName());
-						lastmsgto.put(player.getName(), "CONSOLE");
+						lastmsgto.replace(player.getName(), "CONSOLE");
 					}
 				} else if (args.length >= 2) {
 					Player targetPlayer = Bukkit.getPlayer(args[0]);
@@ -57,14 +55,12 @@ public class MSGCommand implements CommandExecutor {
 									"§6§lTy -> " + targetPlayer.getName() + " >> §e§l" + str.toString().trim());
 							targetPlayer
 									.sendMessage("§6§l" + player.getName() + " -> Ty >> §e§l" + str.toString().trim());
-							lastmsgto.remove(player.getName());
-							lastmsgto.put(player.getName(), targetPlayer.getName());
+							lastmsgto.replace(player.getName(), targetPlayer.getName());
 						}
 					} else {
 						player.sendMessage("§6§lTy -> Konsola >> §e§l" + str.toString().trim());
 						System.out.println(player.getName() + " -> Ty >> " + str.toString().trim());
-						lastmsgto.remove(player.getName());
-						lastmsgto.put(player.getName(), "CONSOLE");
+						lastmsgto.replace(player.getName(), "CONSOLE");
 					}
 				} else {
 					player.sendMessage("§6[MSG] §cZa malo argumentow! Uzycie: /msg <nick> [wiadomosc]");
@@ -88,18 +84,19 @@ public class MSGCommand implements CommandExecutor {
 				if (args.length >= 1) {
 					if (lastmsgto.containsKey(player.getName())) {
 						Player targetPlayer = Bukkit.getPlayer(lastmsgto.get(player.getName()));
-						if (targetPlayer != null) {
+						if (Bukkit.getPlayer(lastmsgto.get(player.getName())).isOnline()) {
 							StringBuilder str = new StringBuilder();
 							for (int i = 0; i < args.length; i++) {
 								str.append(args[i] + " ");
 							}
-							targetPlayer.sendMessage("§6§lDostales prywatna wiadomosc od " + player.getName()
-									+ " §6§l>> §e§l" + str.toString().trim());
+							player.sendMessage("§6§lTy -> " + player.getName() + " >> §e§l" + str.toString().trim());
+							targetPlayer
+									.sendMessage("§6§l" + player.getName() + " -> Ty >> §e§l" + str.toString().trim());
 						} else {
 							player.sendMessage("§6[MSG] §cTwoj korespondent nie jest juz online!");
 						}
 					} else {
-						player.sendMessage("lol");
+						player.sendMessage("§6[MSG] §cJeszcze nie napisales zadnej wiadomosci.");
 					}
 				}
 			}

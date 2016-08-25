@@ -1,10 +1,5 @@
 package me.woulfiee.server.worlds.plots.commands;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.worlds.plots.utils.LocationUtils;
-import me.woulfiee.server.worlds.plots.utils.Plot;
-import me.woulfiee.server.worlds.plots.utils.PlotManager;
-
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -12,6 +7,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.worlds.plots.utils.LocationUtils;
+import me.woulfiee.server.worlds.plots.utils.Plot;
+import me.woulfiee.server.worlds.plots.utils.PlotManager;
 
 /**
  * 
@@ -27,7 +27,7 @@ public class PlotCommand implements CommandExecutor {
 	 */
 	private static String displayHelpMessage() {
 		StringBuilder builder = new StringBuilder(StringUtils.center("§c DZIALKI ", 239, "§7§m-") + "\n");
-		builder.append("\n §7- /d stworz - tworzy nowa dzialke. Gracz moze miec jedna, VIP moze miec 3\n");
+		builder.append("§7- /d stworz - tworzy nowa dzialke. Gracz moze miec jedna, VIP moze miec 3\n");
 		builder.append("§7 - /d usun - usuwa dzialke, na ktorej stoisz\n");
 		builder.append(
 				"§7 - /d publiczna - twoja dzialke na publiczna lub niepubliczna.\n   Jezeli jest niepubliczna, nikt nie moze wejsc na nia oprocz\n   ciebie, administracji i pomocnikow dzialki.\n");
@@ -44,20 +44,27 @@ public class PlotCommand implements CommandExecutor {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
 				if (args.length >= 1) {
-					for (String plotName : Dogends.getMain().getConfig().getConfigurationSection("Plots").getKeys(false)) {
-						if (Dogends.getMain().getConfig().contains(plotName)) {
-							List<String> plots = Dogends.getMain().getConfig().getStringList("Plots");
-							int id = plots.size() + 1;
-							Plot plot = new Plot(id, LocationUtils.getMinX(id), LocationUtils.getMinZ(id), LocationUtils.getMaxX(id),
-									LocationUtils.getMaxZ(id), player.getName(), null, true, false);
-							PlotManager.createPlot(plot);
+					if (args[0].equalsIgnoreCase("stworz") || args[0].equalsIgnoreCase("create")
+							|| args[0].equalsIgnoreCase("c") || args[0].equalsIgnoreCase("s")) {
+						for (String plotName : Dogends.getMain().getConfig().getConfigurationSection("Plots")
+								.getKeys(false)) {
+							if (plotName != null) {
+								List<String> plots = Dogends.getMain().getConfig().getStringList("Plots");
+								int id = plots.size() + 1;
+								Plot plot = new Plot(id, LocationUtils.getMinX(id), LocationUtils.getMinZ(id),
+										LocationUtils.getMaxX(id), LocationUtils.getMaxZ(id), player.getName(), null,
+										true, false);
+								PlotManager.createPlot(plot);
+							} else {
+								player.sendMessage("§6[Dzialka] §c");
+							}
 						}
 					}
 				} else {
 					player.sendMessage(displayHelpMessage());
 				}
 			} else {
-
+				sender.sendMessage("Na te chwile tylko gracze moga uzywac tej komendy");
 			}
 		}
 		return false;

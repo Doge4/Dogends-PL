@@ -8,6 +8,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import me.woulfiee.server.chat.ranks.Ranks;
 import me.woulfiee.server.chat.ranks.utils.Utils;
+import me.woulfiee.server.loginregister.Login;
 
 /**
  * 
@@ -19,10 +20,14 @@ public class Budowniczy implements Listener {
 	@EventHandler
 	public void onPlayerChat(AsyncPlayerChatEvent e) {
 		if (Ranks.isBuilder(e.getPlayer())) {
-			for (Player player : Bukkit.getOnlinePlayers()) {
-				Utils.playOutChat("§9§lBudowniczy",
-						"Ostatnia ranga przed ranga moderator. \nMozesz ja zdobyc, aplikujac na odpowiednie stanowisko.",
-						player, e.getMessage());
+			if (Login.isLoggedIn(e.getPlayer())) {
+				for (Player player : Bukkit.getOnlinePlayers()) {
+					Utils.playOutChat("§9§lBudowniczy",
+							"Ostatnia ranga przed ranga moderator. \nMozesz ja zdobyc, aplikujac na odpowiednie stanowisko.",
+							player, e.getMessage());
+					e.setCancelled(true);
+				}
+				System.out.println("Budowniczy " + e.getPlayer().getName() + " >> " + e.getMessage());
 			}
 		}
 	}

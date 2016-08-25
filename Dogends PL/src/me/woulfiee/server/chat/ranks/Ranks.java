@@ -18,7 +18,7 @@ public class Ranks {
 	public static List<String> mods = Dogends.getMain().getConfig().getStringList("Ranks.Mod.Players");
 	public static List<String> owners = Dogends.getMain().getConfig().getStringList("Ranks.Owner.Players");
 	public static List<String> players = Dogends.getMain().getConfig().getStringList("Ranks.Player.Players");
-	public static List<String> vips = Dogends.getMain().getConfig().getStringList("Ranks.Doge.Players");
+	public static List<String> vips = Dogends.getMain().getConfig().getStringList("Ranks.VIP.Players");
 	public static List<String> youtubers = Dogends.getMain().getConfig().getStringList("Ranks.Youtuber.Players");
 
 	public static List<String> getAdmins() {

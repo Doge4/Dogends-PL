@@ -10,7 +10,6 @@ import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.woulfiee.server.broadcast.Broadcaster;
-import me.woulfiee.server.chat.censor.Censor;
 import me.woulfiee.server.listeners.AntiGrief;
 import me.woulfiee.server.motd.Appearance;
 import me.woulfiee.server.startup.LoadCommands;
@@ -42,15 +41,6 @@ public class Dogends extends JavaPlugin {
 	public void onEnable() {
 		Dogends.plugin = this;
 		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Lag(), 100L, 1L);
-		Censor.toggle.add("on");
-		AntiGrief.basifm.add("on");
-		AntiGrief.bbp.add("on");
-		AntiGrief.be.add("on");
-		AntiGrief.bld.add("on");
-		AntiGrief.bpe.add("on");
-		AntiGrief.bpp.add("on");
-		AntiGrief.bms.add("on");
-		AntiGrief.bwc.add("on");
 		LoadCommands.load();
 		LoadListeners.load();
 		Appearance.setupMotD();

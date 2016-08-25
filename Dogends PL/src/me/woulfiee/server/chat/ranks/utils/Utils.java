@@ -21,8 +21,8 @@ public class Utils {
 		CraftPlayer craftplayer = (CraftPlayer) player;
 		PlayerConnection connection = craftplayer.getHandle().playerConnection;
 		
-		String jsonrank = "{text:\"" + rank + "\",hoverEvent:{action:\"show_text\",value:{text:\"\",extra:[{text:\"" + rank
-				+ "\n\n" + hoverText + "\"}]}}}" + "{text:\" §f" + player + " §8§o§l>> " + message + "\"}";
+		String jsonrank = "[\"\",{text:\"" + rank + "\",hoverEvent:{action:\"show_text\",value:{text:\"\",extra:[{text:\"" + rank
+				+ "\n\n" + hoverText + "\"}]}}},{text:\" §f" + player.getName() + " §8§o§l>> §f" + message + "\"}]";
 
 		PacketPlayOutChat packet = new PacketPlayOutChat(ChatSerializer.a(jsonrank));
 		connection.sendPacket(packet);
