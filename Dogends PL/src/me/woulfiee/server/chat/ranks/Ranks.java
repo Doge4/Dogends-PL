@@ -1,10 +1,10 @@
 package me.woulfiee.server.chat.ranks;
 
-import me.woulfiee.server.Dogends;
-
 import java.util.List;
 
 import org.bukkit.OfflinePlayer;
+
+import me.woulfiee.server.Dogends;
 
 /**
  * 

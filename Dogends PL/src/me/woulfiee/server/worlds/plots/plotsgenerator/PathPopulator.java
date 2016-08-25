@@ -14,6 +14,7 @@ import org.bukkit.generator.BlockPopulator;
  */
 public class PathPopulator extends BlockPopulator {
 
+	@Override
 	public void populate(World world, Random random, Chunk chunk) {
 		int chunkX = chunk.getX() * 16;
 		int chunkZ = chunk.getZ() * 16;

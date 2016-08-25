@@ -1,11 +1,11 @@
 package me.woulfiee.server.worlds.utils;
 
-import me.woulfiee.server.Dogends;
-
 import org.bukkit.Bukkit;
 import org.bukkit.World.Environment;
 import org.bukkit.WorldCreator;
 import org.bukkit.WorldType;
+
+import me.woulfiee.server.Dogends;
 
 /**
  * 
@@ -23,33 +23,41 @@ public class LoadWorlds {
 							if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type").equals("normal")) {
 								Bukkit.createWorld(new WorldCreator(names).environment(Environment.THE_END)
 										.type(WorldType.NORMAL));
-							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type").equals("flat")) {
+							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type")
+									.equals("flat")) {
 								Bukkit.createWorld(
 										new WorldCreator(names).environment(Environment.THE_END).type(WorldType.FLAT));
-							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type").equals("amplified")) {
+							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type")
+									.equals("amplified")) {
 								Bukkit.createWorld(new WorldCreator(names).environment(Environment.THE_END)
 										.type(WorldType.AMPLIFIED));
 							}
-						} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Environment").equals("normal")) {
+						} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Environment")
+								.equals("normal")) {
 							if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type").equals("normal")) {
 								Bukkit.createWorld(
 										new WorldCreator(names).environment(Environment.NORMAL).type(WorldType.NORMAL));
-							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type").equals("flat")) {
+							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type")
+									.equals("flat")) {
 								Bukkit.createWorld(
 										new WorldCreator(names).environment(Environment.NORMAL).type(WorldType.FLAT));
-							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type").equals("amplified")) {
+							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type")
+									.equals("amplified")) {
 								Bukkit.createWorld(new WorldCreator(names).environment(Environment.NORMAL)
 										.type(WorldType.AMPLIFIED));
 							}
 
-						} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Environment").equals("nether")) {
+						} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Environment")
+								.equals("nether")) {
 							if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type").equals("normal")) {
 								Bukkit.createWorld(
 										new WorldCreator(names).environment(Environment.NETHER).type(WorldType.NORMAL));
-							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type").equals("flat")) {
+							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type")
+									.equals("flat")) {
 								Bukkit.createWorld(
 										new WorldCreator(names).environment(Environment.NETHER).type(WorldType.FLAT));
-							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type").equals("amplified")) {
+							} else if (Dogends.getMain().getConfig().getString("Worlds." + names + ".Type")
+									.equals("amplified")) {
 								Bukkit.createWorld(new WorldCreator(names).environment(Environment.NETHER)
 										.type(WorldType.AMPLIFIED));
 							}

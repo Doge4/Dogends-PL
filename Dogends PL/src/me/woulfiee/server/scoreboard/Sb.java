@@ -1,9 +1,5 @@
 package me.woulfiee.server.scoreboard;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
-import me.woulfiee.server.vanish.VanishCommand;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
@@ -15,6 +11,9 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
+import me.woulfiee.server.vanish.VanishCommand;
 import net.minecraft.server.v1_8_R3.PlayerConnection;
 
 /**
@@ -118,14 +117,15 @@ public class Sb {
 			score1 = getObj().getScore("§7§m-----------------------");
 			score1.setScore(16);
 
-			score2 = getObj()
-					.getScore("§9Pieniadze: §f" + Dogends.getMain().getConfig().getInt("Tokens." + p.getUniqueId().toString()));
+			score2 = getObj().getScore(
+					"§9Pieniadze: §f" + Dogends.getMain().getConfig().getInt("Tokens." + p.getUniqueId().toString()));
 			score2.setScore(15);
 
 			score3 = getObj().getScore(" ");
 			score3.setScore(14);
 
-			score4 = getObj().getScore("§3Poziom: §f" + Dogends.getMain().getConfig().getInt("Levels." + p.getUniqueId().toString()));
+			score4 = getObj().getScore(
+					"§3Poziom: §f" + Dogends.getMain().getConfig().getInt("Levels." + p.getUniqueId().toString()));
 			score4.setScore(13);
 
 			score5 = getObj().getScore("  ");
@@ -136,7 +136,8 @@ public class Sb {
 			} else if (updatetype == ScoreboardUpdateType.QUIT) {
 				score6 = getObj().getScore("§aGraczy Online: §f" + (Bukkit.getServer().getOnlinePlayers().size() - 1));
 			} else {
-				score6 = getObj().getScore("§aGraczy Online: §f" + (Bukkit.getServer().getOnlinePlayers().size() - VanishCommand.vanished.size()));
+				score6 = getObj().getScore("§aGraczy Online: §f"
+						+ (Bukkit.getServer().getOnlinePlayers().size() - VanishCommand.vanished.size()));
 			}
 			score6.setScore(11);
 
@@ -168,7 +169,8 @@ public class Sb {
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
 
 			for (Player online : Bukkit.getServer().getOnlinePlayers())
-				PacketUtils.sendTabHF(online, "§6§lDOGENDS", "§eNasza strona internetowa jest w budowie!\n Niedlugo bedzie dostepna! :)");
+				PacketUtils.sendTabHF(online, "§6§lDOGENDS",
+						"§eNasza strona internetowa jest w budowie!\n Niedlugo bedzie dostepna! :)");
 
 			p.setScoreboard(getScoreboard(p));
 		}

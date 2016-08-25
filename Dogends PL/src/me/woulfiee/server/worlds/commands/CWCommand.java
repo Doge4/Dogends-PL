@@ -1,9 +1,5 @@
 package me.woulfiee.server.worlds.commands;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
-import me.woulfiee.server.worlds.utils.CreateWorld;
-
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.WorldType;
@@ -11,6 +7,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
+import me.woulfiee.server.worlds.utils.CreateWorld;
 
 /**
  * 

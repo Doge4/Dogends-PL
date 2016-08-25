@@ -40,26 +40,12 @@ public class AntiGrief implements Listener {
 	public static boolean blockbreakplace = true;
 	public static boolean blockdaynightcycle = true;
 	public static boolean blockexplosion = true;
+	public static boolean blockgrowing = false;
 	public static boolean blockleafdecay = false;
 	public static boolean blockmobspawn = true;
 	public static boolean blockpve = true;
 	public static boolean blockpvp = true;
 	public static boolean blockweatherchange = true;
-	public static boolean blockgrowing = false;
-
-	@EventHandler
-	public void cactusGrow(BlockGrowEvent e) {
-		if (e.getBlock().getLocation().getX() >= -52 && e.getBlock().getLocation().getX() <= -3) {
-			if (e.getBlock().getLocation().getZ() <= 52 && e.getBlock().getLocation().getZ() >= 3) {
-				if (!e.isCancelled()) {
-					e.setCancelled(true);
-				}
-			}
-		}
-		if (blockgrowing) {
-			e.setCancelled(true);
-		}
-	}
 
 	/**
 	 * Blocks daylight cycle - the sun and moon can't move
@@ -105,6 +91,20 @@ public class AntiGrief implements Listener {
 					e.getPlayer().sendMessage("§6[Ochrona] §cNie mozesz niszczyc tutaj blokow!");
 				}
 			}
+		}
+	}
+
+	@EventHandler
+	public void cactusGrow(BlockGrowEvent e) {
+		if (e.getBlock().getLocation().getX() >= -52 && e.getBlock().getLocation().getX() <= -3) {
+			if (e.getBlock().getLocation().getZ() <= 52 && e.getBlock().getLocation().getZ() >= 3) {
+				if (!e.isCancelled()) {
+					e.setCancelled(true);
+				}
+			}
+		}
+		if (blockgrowing) {
+			e.setCancelled(true);
 		}
 	}
 

@@ -1,7 +1,5 @@
 package me.woulfiee.server.teleportation.tp;
 
-import me.woulfiee.server.chat.ranks.Ranks;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -9,6 +7,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -42,8 +42,8 @@ public class TPCommand implements CommandExecutor {
 								player.teleport(targetPlayerLocation);
 								p.sendMessage("§6[TP] §e" + player.getName() + " §azostal przeteleportowany do §e"
 										+ targetPlayer.getName() + "§e!");
-								player.sendMessage("§6[TP] §aZostales przeteleportowany do §e"
-										+ targetPlayer.getName() + "§a!");
+								player.sendMessage(
+										"§6[TP] §aZostales przeteleportowany do §e" + targetPlayer.getName() + "§a!");
 								targetPlayer.sendMessage(
 										"§6[TP] §e" + player.getName() + " §azostal przeteleportowany do §eCiebie§a!");
 							} else {

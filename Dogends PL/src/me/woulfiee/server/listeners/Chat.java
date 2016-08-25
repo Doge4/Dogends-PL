@@ -16,5 +16,5 @@ public class Chat implements Listener {
 	@EventHandler
 	public void onPlayerChat(AsyncPlayerChatEvent e) {
 	}
-	
+
 }

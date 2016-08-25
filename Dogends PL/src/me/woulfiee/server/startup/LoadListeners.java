@@ -1,5 +1,8 @@
 package me.woulfiee.server.startup;
 
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
+
 import me.woulfiee.server.Dogends;
 import me.woulfiee.server.ban.BanCommand;
 import me.woulfiee.server.chat.censor.Censor;
@@ -20,9 +23,6 @@ import me.woulfiee.server.scoreboard.Quit;
 import me.woulfiee.server.signs.Plugins;
 import me.woulfiee.server.signs.Rules;
 import me.woulfiee.server.teleportation.spawn.Spawn;
-
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.PluginManager;
 
 /**
  * 

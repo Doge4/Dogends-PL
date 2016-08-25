@@ -15,7 +15,7 @@ public class Quit implements Listener {
 
 	@EventHandler
 	public void onPlayerQuit(PlayerQuitEvent e) {
-		
+
 	}
-	
+
 }

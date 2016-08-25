@@ -9,19 +9,22 @@ import org.bukkit.Location;
  */
 public class LocationUtils {
 
+	private static double center = 0D;
+	private static int id;
+	private static int maxPlotsInRow;
+	private static double maxX;
+	private static double maxZ;
+	private static double minX;
+	private static double minZ;
 	private static int pathWidthWithSlabs = 7;
 	private static int plotSize = 48;
 	private static int row;
-	private static int maxPlotsInRow;
-	private static int id;
-	private static double maxX;
-	private static double minX;
-	private static double maxZ;
-	private static double minZ;
-	private static double center = 0D;
 
-	public static int getRow(int id) {
-		return row;
+	public static int getIdFromLocation(Location location) {
+		row = 2;
+		maxPlotsInRow = 3;
+		id = 0;
+		return id;
 	}
 
 	public static int getMaxPlotsInRow(int row1) {
@@ -35,37 +38,6 @@ public class LocationUtils {
 
 	public static int getMaxRowLength(int maxPlotsInRow) {
 		return (maxPlotsInRow * plotSize + ((maxPlotsInRow - 1) * pathWidthWithSlabs));
-	}
-
-	public static int getRowByMaxPlotsInRow(int maxPlotsInRow) {
-		return row;
-	}
-	
-	public static double getRowsMaxX(int maxPlotsInRow) {
-		maxX = center + (maxPlotsInRow * (plotSize + pathWidthWithSlabs) - pathWidthWithSlabs);
-		return maxX;
-	}
-	
-	public static double getRowsMinX(int maxPlotsInRow) {
-		minX = center - (maxPlotsInRow * (plotSize + pathWidthWithSlabs) + pathWidthWithSlabs);
-		return minX;
-	}
-	
-	public static double getRowsMaxZ(int maxPlotsInRow) {
-		maxZ = center + (maxPlotsInRow * (plotSize + pathWidthWithSlabs) - pathWidthWithSlabs);
-		return maxZ;
-	}
-	
-	public static double getRowsMinZ(int maxPlotsInRow) {
-		minZ = center - (maxPlotsInRow * (plotSize + pathWidthWithSlabs) + pathWidthWithSlabs);
-		return minZ;
-	}
-
-	public static int getIdFromLocation(Location location) {
-		row = 2;
-		maxPlotsInRow = 3;
-		id = 0;
-		return id;
 	}
 
 	public static double getMaxX(int id) {
@@ -85,6 +57,34 @@ public class LocationUtils {
 
 	public static double getMinZ(int id) {
 		double minZ = 0;
+		return minZ;
+	}
+
+	public static int getRow(int id) {
+		return row;
+	}
+
+	public static int getRowByMaxPlotsInRow(int maxPlotsInRow) {
+		return row;
+	}
+
+	public static double getRowsMaxX(int maxPlotsInRow) {
+		maxX = center + (maxPlotsInRow * (plotSize + pathWidthWithSlabs) - pathWidthWithSlabs);
+		return maxX;
+	}
+
+	public static double getRowsMaxZ(int maxPlotsInRow) {
+		maxZ = center + (maxPlotsInRow * (plotSize + pathWidthWithSlabs) - pathWidthWithSlabs);
+		return maxZ;
+	}
+
+	public static double getRowsMinX(int maxPlotsInRow) {
+		minX = center - (maxPlotsInRow * (plotSize + pathWidthWithSlabs) + pathWidthWithSlabs);
+		return minX;
+	}
+
+	public static double getRowsMinZ(int maxPlotsInRow) {
+		minZ = center - (maxPlotsInRow * (plotSize + pathWidthWithSlabs) + pathWidthWithSlabs);
 		return minZ;
 	}
 

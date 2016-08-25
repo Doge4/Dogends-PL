@@ -18,18 +18,16 @@ import me.woulfiee.server.chat.ranks.Ranks;
  */
 public class Censor implements Listener {
 
-	public static boolean toggledOn = true;
-
 	private static char[] allowedChars = { 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g',
 			'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
 			'!', '@', '$', '%', '&', '^', '*', '(', ')', '-', '=', '+', '[', ']', '\\', ';', '\'', ',', '.', '?', '?',
 			'>', '<', ':', '"', '{', '}', '|', '~', ' ' };
 
-	private static boolean isAllUpperCase = false;
 	private static boolean containsInvalidChars = false;
-	private static boolean isTooShort = false;
-	private static boolean containsTooMuchSameChars = false;
 
+	private static boolean containsTooMuchSameChars = false;
+	private static boolean isAllUpperCase = false;
+	private static boolean isTooShort = false;
 	private static String[] swears = { "chuj", "chuja", "chujek", "chuju", "chujem", "chujnia", "chujowy", "chujowa",
 			"chujowe", "cipa", "cipê", "cipe", "cip¹", "cipie", "dojebaæ", "dojebac", "dojebie", "dojeba³", "dojebal",
 			"dojeba³a", "dojebala", "dojeba³em", "dojebalem", "dojeba³am", "dojebalam", "dojebiê", "dojebie",
@@ -112,6 +110,8 @@ public class Censor implements Listener {
 			"zesrywaæ", "zesrywaj¹cy", "zjebaæ", "zjebac", "zjeba³", "zjebal", "zjeba³a", "zjebala", "zjebana",
 			"zjebi¹", "zjebali", "zjeby" };
 
+	public static boolean toggledOn = true;
+
 	public static String censor(String string) {
 		String message = string.toLowerCase().replaceAll("@", "a").replaceAll("\\p{Punct}", "").replace("ê", "e")
 				.replace("ó", "o").replace("¹", "a").replace("œ", "s").replace("³", "l").replace("¿", "z")
@@ -147,47 +147,6 @@ public class Censor implements Listener {
 			}
 		}
 		return string;
-	}
-
-	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
-	public void onPlayerChat(final AsyncPlayerChatEvent e) {
-		Player player = e.getPlayer();
-		if (e.getMessage().contains("gandalf")) {
-			Bukkit.getServer().getScheduler().runTaskAsynchronously(Dogends.getMain(), new Runnable() {
-				@Override
-				public void run() {
-					try {
-						Thread.sleep(1000);
-						player.sendMessage("§7§lYou...");
-						Thread.sleep(1250);
-						player.sendMessage("§7§lshall not...");
-						Thread.sleep(1500);
-						player.sendMessage("§7§lpass!");
-					} catch (Exception ignored) {
-					}
-				}
-			});
-
-		}
-		e.setMessage(censor(e.getMessage()));
-		if (isAllUpperCase) {
-			player.sendMessage("§6[Czat] §cWylacz Caps-Lock!");
-			e.setCancelled(true);
-		} else if (containsInvalidChars) {
-			player.sendMessage("§6[Czat] §cWpisales niedozwolone znaki!");
-			e.setCancelled(true);
-		} else if (isTooShort) {
-			if (!Ranks.isStaff(player)) {
-				player.sendMessage("§6[Czat] §cNapisz cos wiecej!");
-				e.setCancelled(true);
-			}
-		} else if (containsTooMuchSameChars) {
-			if (!Ranks.isStaff(player)) {
-				player.sendMessage("§6[Czat] §cZa duzo takich samych znakow!");
-				e.setCancelled(true);
-			}
-		}
-
 	}
 
 	public static int countOccurrences(String haystack, char needle) {
@@ -231,6 +190,47 @@ public class Censor implements Listener {
 				.replace("¹", "a").replace("œ", "s").replace("³", "l").replace("¿", "z").replace("Ÿ", "z")
 				.replace("æ", "c").replace("ñ", "n");
 		return string;
+	}
+
+	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
+	public void onPlayerChat(final AsyncPlayerChatEvent e) {
+		Player player = e.getPlayer();
+		if (e.getMessage().contains("gandalf")) {
+			Bukkit.getServer().getScheduler().runTaskAsynchronously(Dogends.getMain(), new Runnable() {
+				@Override
+				public void run() {
+					try {
+						Thread.sleep(1000);
+						player.sendMessage("§7§lYou...");
+						Thread.sleep(1250);
+						player.sendMessage("§7§lshall not...");
+						Thread.sleep(1500);
+						player.sendMessage("§7§lpass!");
+					} catch (Exception ignored) {
+					}
+				}
+			});
+
+		}
+		e.setMessage(censor(e.getMessage()));
+		if (isAllUpperCase) {
+			player.sendMessage("§6[Czat] §cWylacz Caps-Lock!");
+			e.setCancelled(true);
+		} else if (containsInvalidChars) {
+			player.sendMessage("§6[Czat] §cWpisales niedozwolone znaki!");
+			e.setCancelled(true);
+		} else if (isTooShort) {
+			if (!Ranks.isStaff(player)) {
+				player.sendMessage("§6[Czat] §cNapisz cos wiecej!");
+				e.setCancelled(true);
+			}
+		} else if (containsTooMuchSameChars) {
+			if (!Ranks.isStaff(player)) {
+				player.sendMessage("§6[Czat] §cZa duzo takich samych znakow!");
+				e.setCancelled(true);
+			}
+		}
+
 	}
 
 }

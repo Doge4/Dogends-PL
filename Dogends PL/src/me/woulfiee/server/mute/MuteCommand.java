@@ -1,8 +1,5 @@
 package me.woulfiee.server.mute;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
-
 import java.util.ArrayList;
 
 import org.bukkit.command.Command;
@@ -12,6 +9,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -29,7 +29,8 @@ public class MuteCommand implements CommandExecutor, Listener {
 					if (args.length == 1) {
 						Player p = player.getServer().getPlayer(args[0]);
 						if (Ranks.isOtherRank(p)) {
-							ArrayList<String> muted = (ArrayList<String>) Dogends.getMain().getConfig().getStringList("Muted");
+							ArrayList<String> muted = (ArrayList<String>) Dogends.getMain().getConfig()
+									.getStringList("Muted");
 
 							if (!muted.contains(p.getUniqueId().toString())) {
 								muted.add(p.getUniqueId().toString());

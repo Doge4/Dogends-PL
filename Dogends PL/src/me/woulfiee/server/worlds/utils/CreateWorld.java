@@ -1,13 +1,13 @@
 package me.woulfiee.server.worlds.utils;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.worlds.plots.plotsgenerator.PlotsGenerator;
-
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
 import org.bukkit.WorldCreator;
 import org.bukkit.WorldType;
+
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.worlds.plots.plotsgenerator.PlotsGenerator;
 
 /**
  * 

@@ -1,13 +1,13 @@
 package me.woulfiee.server.broadcast.commands;
 
-import me.woulfiee.server.broadcast.Broadcaster;
-import me.woulfiee.server.chat.ranks.Ranks;
-
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import me.woulfiee.server.broadcast.Broadcaster;
+import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 

@@ -19,8 +19,8 @@ public class Plot {
 	private double minZ;
 	private String ownerName;
 
-	public Plot(int id, double minX, double minZ, double maxX, double maxZ, String ownerName,
-			Set<String> helpers, boolean isPublic, boolean isFinished) {
+	public Plot(int id, double minX, double minZ, double maxX, double maxZ, String ownerName, Set<String> helpers,
+			boolean isPublic, boolean isFinished) {
 		this.id = id;
 		this.minX = minX;
 		this.minZ = minZ;

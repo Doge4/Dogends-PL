@@ -17,16 +17,17 @@ import net.minecraft.server.v1_8_R3.PlayerConnection;
 public class Utils {
 
 	public static void playOutChat(String rank, String hoverText, Player player, String message) {
-		
+
 		CraftPlayer craftplayer = (CraftPlayer) player;
 		PlayerConnection connection = craftplayer.getHandle().playerConnection;
-		
-		String jsonrank = "[\"\",{text:\"" + rank + "\",hoverEvent:{action:\"show_text\",value:{text:\"\",extra:[{text:\"" + rank
-				+ "\n\n" + hoverText + "\"}]}}},{text:\" §f" + player.getName() + " §8§o§l>> §f" + message + "\"}]";
+
+		String jsonrank = "[\"\",{text:\"" + rank
+				+ "\",hoverEvent:{action:\"show_text\",value:{text:\"\",extra:[{text:\"" + rank + "\n\n" + hoverText
+				+ "\"}]}}},{text:\" §f" + player.getName() + " §8§o§l>> §f" + message + "\"}]";
 
 		PacketPlayOutChat packet = new PacketPlayOutChat(ChatSerializer.a(jsonrank));
 		connection.sendPacket(packet);
-		
+
 	}
 
 }

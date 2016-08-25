@@ -1,8 +1,5 @@
 package me.woulfiee.server.loginregister;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -12,6 +9,9 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 

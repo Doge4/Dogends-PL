@@ -1,7 +1,5 @@
 package me.woulfiee.server.broadcast;
 
-import me.woulfiee.server.Dogends;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +11,8 @@ import java.io.LineNumberReader;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+
+import me.woulfiee.server.Dogends;
 
 /**
  * 

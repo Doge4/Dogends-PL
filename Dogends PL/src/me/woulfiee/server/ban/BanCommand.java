@@ -1,8 +1,5 @@
 package me.woulfiee.server.ban;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
-
 import java.util.HashMap;
 
 import org.bukkit.command.Command;
@@ -13,6 +10,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerLoginEvent.Result;
+
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -69,7 +69,8 @@ public class BanCommand implements CommandExecutor, Listener {
 							if (targetPlayer.isOnline()) {
 								targetPlayer.kickPlayer(
 										"§6§lDOGENDS\n\n        §cZostales zbanowany do odwolania! \n\n\nBanujacy: §e"
-												+ Dogends.getMain().getConfig().getString("Banned." + p.getName() + ".Who")
+												+ Dogends.getMain().getConfig()
+														.getString("Banned." + p.getName() + ".Who")
 												+ "\n§cPowod: §e" + getReason(p.getName()) + "§c!");
 							}
 						} else {
@@ -109,8 +110,8 @@ public class BanCommand implements CommandExecutor, Listener {
 
 			e.disallow(Result.KICK_BANNED,
 					"§6§lDOGENDS\n\n       §cZostales zbanowany do odwolania! \n\n\nBanujacy: §e"
-							+ Dogends.getMain().getConfig().getString("Banned." + e.getPlayer().getName() + ".Who") + "\n§cPowod: §e"
-							+ getReason(e.getPlayer().getName()) + "§c!");
+							+ Dogends.getMain().getConfig().getString("Banned." + e.getPlayer().getName() + ".Who")
+							+ "\n§cPowod: §e" + getReason(e.getPlayer().getName()) + "§c!");
 			System.out.println("[DBAN] Zbanowany gracz, " + e.getPlayer().getDisplayName()
 					+ ", chcial sie polaczyc z serwerem. Polaczenie odrzucono.");
 		} else {

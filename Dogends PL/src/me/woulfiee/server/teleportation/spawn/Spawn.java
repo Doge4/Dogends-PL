@@ -1,8 +1,5 @@
 package me.woulfiee.server.teleportation.spawn;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -19,6 +16,9 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.scheduler.BukkitTask;
+
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 

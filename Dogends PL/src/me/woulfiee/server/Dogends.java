@@ -27,43 +27,11 @@ import me.woulfiee.server.worlds.utils.LoadWorlds;
 public class Dogends extends JavaPlugin {
 
 	private static Dogends plugin;
-	private Connection connection;
-
 	public static Dogends getMain() {
 		return Dogends.plugin;
 	}
 
-	public ChunkGenerator getDefaultWorldGenerator(String worldName) {
-		return new PlotsGenerator();
-	}
-
-	@Override
-	public void onEnable() {
-		Dogends.plugin = this;
-		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Lag(), 100L, 1L);
-		LoadCommands.load();
-		LoadListeners.load();
-		Appearance.setupMotD();
-		Broadcaster.runBroadcast();
-		AntiGrief.blockDaynightCycle();
-		LoadWorlds.loadWorlds();
-		CreateWorld.createPlotWorld();
-		// try {
-		// loadData();
-		// } catch (SQLException e) {
-		// e.printStackTrace();
-		// }
-	}
-
-	@Override
-	public void onDisable() {
-		// try {
-		// saveData();
-		// } catch (SQLException e) {
-		// e.printStackTrace();
-		// }
-		saveConfig();
-	}
+	private Connection connection;
 
 	@SuppressWarnings("unused")
 	private void checkTable() {
@@ -84,6 +52,29 @@ public class Dogends extends JavaPlugin {
 		closeConnection();
 	}
 
+	private synchronized void closeConnection() {
+		if (isConnected()) {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public ChunkGenerator getDefaultWorldGenerator(String worldName) {
+		return new PlotsGenerator();
+	}
+
+	public boolean isConnected() {
+		try {
+			return !this.connection.isClosed() || this.connection == null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	@SuppressWarnings("unused")
 	private void loadData() throws SQLException {
 		openConnection();
@@ -96,12 +87,32 @@ public class Dogends extends JavaPlugin {
 		closeConnection();
 	}
 
-	@SuppressWarnings("unused")
-	private void saveData() throws SQLException {
-		openConnection();
-		int i = 0;
-		Bukkit.getConsoleSender().sendMessage("Zapisano " + i + " graczy!");
-		closeConnection();
+	@Override
+	public void onDisable() {
+		// try {
+		// saveData();
+		// } catch (SQLException e) {
+		// e.printStackTrace();
+		// }
+		saveConfig();
+	}
+
+	@Override
+	public void onEnable() {
+		Dogends.plugin = this;
+		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Lag(), 100L, 1L);
+		LoadCommands.load();
+		LoadListeners.load();
+		Appearance.setupMotD();
+		Broadcaster.runBroadcast();
+		AntiGrief.blockDaynightCycle();
+		LoadWorlds.loadWorlds();
+		CreateWorld.createPlotWorld();
+		// try {
+		// loadData();
+		// } catch (SQLException e) {
+		// e.printStackTrace();
+		// }
 	}
 
 	private synchronized void openConnection() {
@@ -115,22 +126,11 @@ public class Dogends extends JavaPlugin {
 		}
 	}
 
-	private synchronized void closeConnection() {
-		if (isConnected()) {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	public boolean isConnected() {
-		try {
-			return !this.connection.isClosed() || this.connection == null;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
+	@SuppressWarnings("unused")
+	private void saveData() throws SQLException {
+		openConnection();
+		int i = 0;
+		Bukkit.getConsoleSender().sendMessage("Zapisano " + i + " graczy!");
+		closeConnection();
 	}
 }

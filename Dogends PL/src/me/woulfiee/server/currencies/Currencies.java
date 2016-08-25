@@ -1,9 +1,5 @@
 package me.woulfiee.server.currencies;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.scoreboard.Sb;
-import me.woulfiee.server.scoreboard.ScoreboardUpdateType;
-
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.UUID;
@@ -12,6 +8,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
+
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.scoreboard.Sb;
+import me.woulfiee.server.scoreboard.ScoreboardUpdateType;
 
 /**
  * 

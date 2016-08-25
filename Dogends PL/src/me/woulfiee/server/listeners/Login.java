@@ -15,12 +15,12 @@ import org.bukkit.event.player.PlayerLoginEvent;
 public class Login implements Listener {
 
 	@EventHandler
+	public void onPlayerLogin(PlayerLoginEvent e) {
+
+	}
+
+	@EventHandler
 	public void onPlayerPreLogin(AsyncPlayerPreLoginEvent e) {
 	}
-	
-	@EventHandler
-	public void onPlayerLogin(PlayerLoginEvent e) {
-		
-	}
-	
+
 }

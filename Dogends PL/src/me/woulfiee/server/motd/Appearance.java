@@ -42,7 +42,8 @@ public class Appearance {
 				message.add(new WrappedGameProfile("2", center("§eSerwer gotowy w §a85%", 42)));
 				packet.setPlayers(message);
 				packet.setVersionProtocol(3);
-				packet.setVersionName("§6Online: §e" + packet.getPlayersOnline() + "§8/§e" + packet.getPlayersMaximum());
+				packet.setVersionName(
+						"§6Online: §e" + packet.getPlayersOnline() + "§8/§e" + packet.getPlayersMaximum());
 			}
 		});
 	}

@@ -1,11 +1,11 @@
 package me.woulfiee.server.chat.colors;
 
-import me.woulfiee.server.chat.ranks.Ranks;
-
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+
+import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
