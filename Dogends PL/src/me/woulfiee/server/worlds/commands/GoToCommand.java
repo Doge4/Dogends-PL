@@ -1,5 +1,10 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.worlds.commands;
 
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -7,8 +12,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -33,9 +36,9 @@ public class GoToCommand implements CommandExecutor {
 								player.teleport(new Location(world, world.getSpawnLocation().getX(),
 										world.getSpawnLocation().getY(), world.getSpawnLocation().getZ()));
 								player.sendMessage(
-										"§6[TP] §aZostales przeteleportowany do swiata §e" + world.getName() + "§a!");
+										"Â§6[TP] Â§aZostales przeteleportowany do swiata Â§e" + world.getName() + "Â§a!");
 							} else {
-								player.sendMessage("§6[TP] §cTen swiat nie istnieje!");
+								player.sendMessage("Â§6[TP] Â§cTen swiat nie istnieje!");
 							}
 						}
 					} else if (args.length >= 2) {
@@ -46,18 +49,18 @@ public class GoToCommand implements CommandExecutor {
 								targetPlayer.teleport(new Location(world, world.getSpawnLocation().getX(),
 										world.getSpawnLocation().getY(), world.getSpawnLocation().getZ()));
 								targetPlayer.sendMessage(
-										"§6[TP] §aZostales przeteleportowany do swiata §e" + world.getName() + "§a!");
+										"Â§6[TP] Â§aZostales przeteleportowany do swiata Â§e" + world.getName() + "Â§a!");
 							} else {
-								player.sendMessage("§6[TP] §e" + args[1] + "§c nie jest online!");
+								player.sendMessage("Â§6[TP] Â§e" + args[1] + "Â§c nie jest online!");
 							}
 						} else {
-							player.sendMessage("§6[TP] §cTen swiat nie istnieje!");
+							player.sendMessage("Â§6[TP] Â§cTen swiat nie istnieje!");
 						}
 					} else {
-						player.sendMessage("§6[TP] §cZa malo argumentow!");
+						player.sendMessage("Â§6[TP] Â§cZa malo argumentow!");
 					}
 				} else {
-					player.sendMessage("§6[TP] §cNie masz pozwolenia!");
+					player.sendMessage("Â§6[TP] Â§cNie masz pozwolenia!");
 				}
 			} else {
 				if (args.length >= 2) {
@@ -68,15 +71,15 @@ public class GoToCommand implements CommandExecutor {
 							targetPlayer.teleport(new Location(world, world.getSpawnLocation().getX(),
 									world.getSpawnLocation().getY(), world.getSpawnLocation().getZ()));
 							targetPlayer.sendMessage(
-									"§6[TP] §aZostales przeteleportowany do swiata §e" + world.getName() + "§a!");
+									"Â§6[TP] Â§aZostales przeteleportowany do swiata Â§e" + world.getName() + "Â§a!");
 						} else {
-							sender.sendMessage("§6[TP] §e" + args[1] + "§c nie jest online!");
+							sender.sendMessage("Â§6[TP] Â§e" + args[1] + "Â§c nie jest online!");
 						}
 					} else {
-						sender.sendMessage("§6[TP] §cTen swiat nie istnieje!");
+						sender.sendMessage("Â§6[TP] Â§cTen swiat nie istnieje!");
 					}
 				} else {
-					sender.sendMessage("§6[TP] §cZa malo argumentow!");
+					sender.sendMessage("Â§6[TP] Â§cZa malo argumentow!");
 				}
 			}
 		}

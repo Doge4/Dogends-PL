@@ -1,14 +1,17 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.loginregister;
 
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.announcements.utils.PacketUtils;
 import org.apache.commons.codec.binary.Base64;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.announcements.utils.PacketUtils;
 
 /**
  * 
@@ -34,11 +37,8 @@ public class Register implements CommandExecutor {
 	}
 
 	public static boolean isRegistered(Player player) {
-		if (Dogends.getMain().getConfig().contains("Registered." + player.getName())
-				|| player.getName().equals("Woulfiee")) {
-			return true;
-		}
-		return false;
+		return Dogends.getMain().getConfig().contains("Registered." + player.getName())
+				|| player.getName().equals("Woulfiee");
 	}
 
 	public String encode(String password) {
@@ -56,27 +56,27 @@ public class Register implements CommandExecutor {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
 				if (Login.isLoggedIn(player) && isRegistered(player)) {
-					player.sendMessage("§6[Rejestracja] §cJestes juz zalogowany i zarejestrowany!");
+					player.sendMessage("Â§6[Rejestracja] Â§cJestes juz zalogowany i zarejestrowany!");
 				} else {
 					if (args.length >= 1) {
 						if (player.getName().equals("Woulfiee")) {
-							player.sendMessage("§6[Rejestracja] §cNie mozesz sie zarejestrowac!");
+							player.sendMessage("Â§6[Rejestracja] Â§cNie mozesz sie zarejestrowac!");
 						} else {
 							if (args[0].length() >= 4 && args[0].length() <= 16) {
 
 								Bukkit.broadcastMessage(
-										"§eWitaj, §a" + player.getName() + "§e na serwerze §6§lDogends");
-								PacketUtils.sendTitle(player, "§eWitaj, §a" + player.getName());
-								PacketUtils.sendSubtitle(player, "§ena serwerze §6§lDogends");
+										"Â§eWitaj, Â§a" + player.getName() + "Â§e na serwerze Â§6Â§lDogends");
+								PacketUtils.sendTitle(player, "Â§eWitaj, Â§a" + player.getName());
+								PacketUtils.sendSubtitle(player, "Â§ena serwerze Â§6Â§lDogends");
 								Login.loggedin.add(player.getName());
 								setPassword(player.getName(), args[0]);
-								player.sendMessage("§6[Rejestracja] §aZostales zarejestrowany i zalogowany pomyslnie!");
+								player.sendMessage("Â§6[Rejestracja] Â§aZostales zarejestrowany i zalogowany pomyslnie!");
 							} else {
-								player.sendMessage("§6[Rejestracja] §cHaslo powinno zawierac od 4 do 16 znakow!");
+								player.sendMessage("Â§6[Rejestracja] Â§cHaslo powinno zawierac od 4 do 16 znakow!");
 							}
 						}
 					} else {
-						player.sendMessage("§6[Rejestracja] §cNie podano hasla!");
+						player.sendMessage("Â§6[Rejestracja] Â§cNie podano hasla!");
 					}
 				}
 			} else {

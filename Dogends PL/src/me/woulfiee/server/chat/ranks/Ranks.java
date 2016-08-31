@@ -1,10 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.chat.ranks;
 
-import java.util.List;
-
+import me.woulfiee.server.Dogends;
 import org.bukkit.OfflinePlayer;
 
-import me.woulfiee.server.Dogends;
+import java.util.List;
 
 /**
  * 
@@ -55,10 +58,7 @@ public class Ranks {
 	 * @return true, if has admin rank, otherwise false
 	 */
 	public static boolean isAdmin(OfflinePlayer player) {
-		if (Ranks.getAdmins().contains(player.getName())) {
-			return true;
-		}
-		return false;
+		return Ranks.getAdmins().contains(player.getName());
 	}
 
 	/**
@@ -67,10 +67,7 @@ public class Ranks {
 	 * @return true, if has builder rank, otherwise false
 	 */
 	public static boolean isBuilder(OfflinePlayer player) {
-		if (Ranks.getBuilders().contains(player.getName())) {
-			return true;
-		}
-		return false;
+		return Ranks.getBuilders().contains(player.getName());
 	}
 
 	/**
@@ -79,10 +76,7 @@ public class Ranks {
 	 * @return true, if has moderator rank, otherwise false
 	 */
 	public static boolean isMod(OfflinePlayer player) {
-		if (Ranks.getMods().contains(player.getName())) {
-			return true;
-		}
-		return false;
+		return Ranks.getMods().contains(player.getName());
 	}
 
 	/**
@@ -100,10 +94,7 @@ public class Ranks {
 		if (Ranks.isPlayer(player)) {
 			return true;
 		}
-		if (Ranks.isYoutuber(player)) {
-			return true;
-		}
-		return false;
+		return Ranks.isYoutuber(player);
 	}
 
 	/**
@@ -112,10 +103,7 @@ public class Ranks {
 	 * @return true, if has owner rank, otherwise false
 	 */
 	public static boolean isOwner(OfflinePlayer player) {
-		if (Ranks.getOwners().contains(player.getName())) {
-			return true;
-		}
-		return false;
+		return Ranks.getOwners().contains(player.getName());
 	}
 
 	/**
@@ -124,10 +112,7 @@ public class Ranks {
 	 * @return true, if has player rank, otherwise false
 	 */
 	public static boolean isPlayer(OfflinePlayer player) {
-		if (Ranks.getPlayers().contains(player.getName())) {
-			return true;
-		}
-		return false;
+		return Ranks.getPlayers().contains(player.getName());
 	}
 
 	/**
@@ -142,10 +127,7 @@ public class Ranks {
 		if (Ranks.getMods().contains(player.getName())) {
 			return true;
 		}
-		if (Ranks.getOwners().contains(player.getName())) {
-			return true;
-		}
-		return false;
+		return Ranks.getOwners().contains(player.getName());
 	}
 
 	/**
@@ -154,10 +136,7 @@ public class Ranks {
 	 * @return true, if has VIP rank, otherwise false
 	 */
 	public static boolean isVip(OfflinePlayer player) {
-		if (Ranks.getVips().contains(player.getName())) {
-			return true;
-		}
-		return false;
+		return Ranks.getVips().contains(player.getName());
 	}
 
 	/**
@@ -166,10 +145,7 @@ public class Ranks {
 	 * @return true, if has youtuber rank, otherwise false
 	 */
 	public static boolean isYoutuber(OfflinePlayer player) {
-		if (Ranks.getYoutubers().contains(player.getName())) {
-			return true;
-		}
-		return false;
+		return Ranks.getYoutubers().contains(player.getName());
 	}
 
 	public static void setAdmin(OfflinePlayer player) {
@@ -183,7 +159,7 @@ public class Ranks {
 		admins.add(player.getName());
 
 		Dogends.getMain().getConfig().set("Ranks.Player.Players", players);
-		Dogends.getMain().getConfig().set("Ranks.Doge.Players", vips);
+		Dogends.getMain().getConfig().set("Ranks.VIP.Players", vips);
 		Dogends.getMain().getConfig().set("Ranks.Youtuber.Players", youtubers);
 		Dogends.getMain().getConfig().set("Ranks.Builder.Players", builders);
 		Dogends.getMain().getConfig().set("Ranks.Mod.Players", mods);
@@ -204,7 +180,7 @@ public class Ranks {
 		builders.add(player.getName());
 
 		Dogends.getMain().getConfig().set("Ranks.Player.Players", players);
-		Dogends.getMain().getConfig().set("Ranks.Doge.Players", vips);
+		Dogends.getMain().getConfig().set("Ranks.VIP.Players", vips);
 		Dogends.getMain().getConfig().set("Ranks.Youtuber.Players", youtubers);
 		Dogends.getMain().getConfig().set("Ranks.Builder.Players", builders);
 		Dogends.getMain().getConfig().set("Ranks.Mod.Players", mods);
@@ -225,7 +201,7 @@ public class Ranks {
 		mods.add(player.getName());
 
 		Dogends.getMain().getConfig().set("Ranks.Player.Players", players);
-		Dogends.getMain().getConfig().set("Ranks.Doge.Players", vips);
+		Dogends.getMain().getConfig().set("Ranks.VIP.Players", vips);
 		Dogends.getMain().getConfig().set("Ranks.Youtuber.Players", youtubers);
 		Dogends.getMain().getConfig().set("Ranks.Builder.Players", builders);
 		Dogends.getMain().getConfig().set("Ranks.Mod.Players", mods);
@@ -246,7 +222,7 @@ public class Ranks {
 		owners.add(player.getName());
 
 		Dogends.getMain().getConfig().set("Ranks.Player.Players", players);
-		Dogends.getMain().getConfig().set("Ranks.Doge.Players", vips);
+		Dogends.getMain().getConfig().set("Ranks.VIP.Players", vips);
 		Dogends.getMain().getConfig().set("Ranks.Youtuber.Players", youtubers);
 		Dogends.getMain().getConfig().set("Ranks.Builder.Players", builders);
 		Dogends.getMain().getConfig().set("Ranks.Mod.Players", mods);
@@ -267,7 +243,7 @@ public class Ranks {
 		players.add(player.getName());
 
 		Dogends.getMain().getConfig().set("Ranks.Player.Players", players);
-		Dogends.getMain().getConfig().set("Ranks.Doge.Players", vips);
+		Dogends.getMain().getConfig().set("Ranks.VIP.Players", vips);
 		Dogends.getMain().getConfig().set("Ranks.Youtuber.Players", youtubers);
 		Dogends.getMain().getConfig().set("Ranks.Builder.Players", builders);
 		Dogends.getMain().getConfig().set("Ranks.Mod.Players", mods);
@@ -288,7 +264,7 @@ public class Ranks {
 		vips.add(player.getName());
 
 		Dogends.getMain().getConfig().set("Ranks.Player.Players", players);
-		Dogends.getMain().getConfig().set("Ranks.Doge.Players", vips);
+		Dogends.getMain().getConfig().set("Ranks.VIP.Players", vips);
 		Dogends.getMain().getConfig().set("Ranks.Youtuber.Players", youtubers);
 		Dogends.getMain().getConfig().set("Ranks.Builder.Players", builders);
 		Dogends.getMain().getConfig().set("Ranks.Mod.Players", mods);
@@ -309,7 +285,7 @@ public class Ranks {
 		youtubers.add(player.getName());
 
 		Dogends.getMain().getConfig().set("Ranks.Player.Players", players);
-		Dogends.getMain().getConfig().set("Ranks.Doge.Players", vips);
+		Dogends.getMain().getConfig().set("Ranks.VIP.Players", vips);
 		Dogends.getMain().getConfig().set("Ranks.Youtuber.Players", youtubers);
 		Dogends.getMain().getConfig().set("Ranks.Builder.Players", builders);
 		Dogends.getMain().getConfig().set("Ranks.Mod.Players", mods);

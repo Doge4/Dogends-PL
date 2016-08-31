@@ -1,14 +1,17 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 /**
  * 
  */
 package me.woulfiee.server.chat.ranks.utils;
 
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
-import org.bukkit.entity.Player;
-
 import net.minecraft.server.v1_8_R3.IChatBaseComponent.ChatSerializer;
 import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
 import net.minecraft.server.v1_8_R3.PlayerConnection;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.entity.Player;
 
 /**
  * @author Woulfiee
@@ -16,14 +19,14 @@ import net.minecraft.server.v1_8_R3.PlayerConnection;
  */
 public class Utils {
 
-	public static void playOutChat(String rank, String hoverText, Player player, String message) {
+	public static void playOutChat(String rank, String hoverText, Player playertosend, Player sender, String message) {
 
-		CraftPlayer craftplayer = (CraftPlayer) player;
+		CraftPlayer craftplayer = (CraftPlayer) playertosend;
 		PlayerConnection connection = craftplayer.getHandle().playerConnection;
 
 		String jsonrank = "[\"\",{text:\"" + rank
 				+ "\",hoverEvent:{action:\"show_text\",value:{text:\"\",extra:[{text:\"" + rank + "\n\n" + hoverText
-				+ "\"}]}}},{text:\" §f" + player.getName() + " §8§o§l>> §f" + message + "\"}]";
+				+ "\"}]}}},{text:\" Â§f" + sender.getName() + " Â§8Â§oÂ§l>> Â§f" + message + "\"}]";
 
 		PacketPlayOutChat packet = new PacketPlayOutChat(ChatSerializer.a(jsonrank));
 		connection.sendPacket(packet);

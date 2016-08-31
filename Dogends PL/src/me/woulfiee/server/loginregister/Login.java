@@ -1,14 +1,17 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.loginregister;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import me.woulfiee.server.announcements.utils.PacketUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.woulfiee.server.announcements.utils.PacketUtils;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -34,32 +37,32 @@ public class Login implements CommandExecutor {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
 				if (isLoggedIn(player)) {
-					player.sendMessage("§6[Logowanie] §cJestes juz zalogowany!");
+					player.sendMessage("Â§6[Logowanie] Â§cJestes juz zalogowany!");
 				} else if (!Register.isRegistered(player)) {
-					player.sendMessage("§6[Logowanie] §cNie jestes zarejestrowany!");
+					player.sendMessage("Â§6[Logowanie] Â§cNie jestes zarejestrowany!");
 				} else {
 					if (args.length >= 1) {
 						if (player.getName().equals("Woulfiee")) {
 							if (args[0].equals("JezusToMojKrol")) {
-								PacketUtils.sendTitle(player, "§6§lDOGENDS");
-								PacketUtils.sendSubtitle(player, "§eWitaj Woulfiee :)");
+								PacketUtils.sendTitle(player, "Â§6Â§lDOGENDS");
+								PacketUtils.sendSubtitle(player, "Â§eWitaj Woulfiee :)");
 
 								loggedin.add("Woulfiee");
 								player.sendMessage(
-										"§6[Logowanie] §aWitaj, Woulfiee, krolu tego serwera! Kazda decyzje podejmuj przez pryzmat milosci do Jezusa i drugiego czlowieka! Zostales zalogowany :)");
+										"Â§6[Logowanie] Â§aWitaj, Woulfiee! Zostales zalogowany :)");
 							} else {
-								player.sendMessage("§6[Logowanie] §cNie podszywaj sie!");
+								player.sendMessage("Â§6[Logowanie] Â§cNie podszywaj sie!");
 							}
 						} else {
 							if (args[0].equals(Register.getPassword(player))) {
 								loggedin.add(player.getName());
-								player.sendMessage("§6[Logowanie] §aZostales zalogowany pomyslnie!");
+								player.sendMessage("Â§6[Logowanie] Â§aZostales zalogowany pomyslnie!");
 							} else {
-								player.sendMessage("§6[Logowanie] §cHaslo nieprawidlowe!");
+								player.sendMessage("Â§6[Logowanie] Â§cHaslo nieprawidlowe!");
 							}
 						}
 					} else {
-						player.sendMessage("§6[Logowanie] §cNie podano hasla!");
+						player.sendMessage("Â§6[Logowanie] Â§cNie podano hasla!");
 					}
 				}
 			} else {

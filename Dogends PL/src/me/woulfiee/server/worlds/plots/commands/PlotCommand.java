@@ -1,17 +1,20 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.worlds.plots.commands;
 
-import java.util.List;
-
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.worlds.plots.utils.LocationUtils;
+import me.woulfiee.server.worlds.plots.utils.Plot;
+import me.woulfiee.server.worlds.plots.utils.PlotManager;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.worlds.plots.utils.LocationUtils;
-import me.woulfiee.server.worlds.plots.utils.Plot;
-import me.woulfiee.server.worlds.plots.utils.PlotManager;
+import java.util.Set;
 
 /**
  * 
@@ -26,17 +29,17 @@ public class PlotCommand implements CommandExecutor {
 	 * @return help message
 	 */
 	private static String displayHelpMessage() {
-		StringBuilder builder = new StringBuilder(StringUtils.center("งc DZIALKI ", 239, "ง7งm-") + "\n");
-		builder.append("ง7- /d stworz - tworzy nowa dzialke. Gracz moze miec jedna, VIP moze miec 3\n");
-		builder.append("ง7 - /d usun - usuwa dzialke, na ktorej stoisz\n");
-		builder.append(
-				"ง7 - /d publiczna - twoja dzialke na publiczna lub niepubliczna.\n   Jezeli jest niepubliczna, nikt nie moze wejsc na nia oprocz\n   ciebie, administracji i pomocnikow dzialki.\n");
-		builder.append("ง7 - /d ukonczona - ustanawia twoja dzialke ukonczona\n");
-		builder.append(
-				"ง7 - /d dodaj <nick> - dodaje pomocnika do dzialki. Gracz moze miec ich nie wiecej niz pieciu. VIP moze miec ich dziesieciu\n");
-		builder.append("ง7");
-		return builder.toString();
-	}
+        StringBuilder builder = new StringBuilder(StringUtils.center("ยงc DZIALKI ", 239, "ยง7ยงm-") + "\n");
+        builder.append("ยง7- /d stworz - tworzy nowa dzialke\n");
+        builder.append("ยง7 - /d usun - usuwa dzialke, na ktorej stoisz\n");
+        builder.append(
+                "ยง7 - /d publiczna - ustawia status twojej dzialki na publiczna lub niepubliczna.\n");
+        builder.append("ยง7 - /d ukonczona - ustawia status twojej dzialki na ukonczona\n");
+        builder.append(
+                "ยง7 - /d dodaj <nick> - dodaje pomocnika do dzialki\n");
+        builder.append("ยง7");
+        return builder.toString();
+    }
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -46,21 +49,14 @@ public class PlotCommand implements CommandExecutor {
 				if (args.length >= 1) {
 					if (args[0].equalsIgnoreCase("stworz") || args[0].equalsIgnoreCase("create")
 							|| args[0].equalsIgnoreCase("c") || args[0].equalsIgnoreCase("s")) {
-						for (String plotName : Dogends.getMain().getConfig().getConfigurationSection("Plots")
-								.getKeys(false)) {
-							if (plotName != null) {
-								List<String> plots = Dogends.getMain().getConfig().getStringList("Plots");
-								int id = plots.size() + 1;
-								Plot plot = new Plot(id, LocationUtils.getMinX(id), LocationUtils.getMinZ(id),
-										LocationUtils.getMaxX(id), LocationUtils.getMaxZ(id), player.getName(), null,
-										true, false);
-								PlotManager.createPlot(plot);
-							} else {
-								player.sendMessage("ง6[Dzialka] งc");
-							}
-						}
-					}
-				} else {
+                        Set<String> plots = Dogends.getMain().getConfig().getConfigurationSection("Plots." + player.getName()).getKeys(false);
+                        int id = plots.size() + 1;
+                        Plot plot = new Plot(id, LocationUtils.getMinX(id), LocationUtils.getMinZ(id),
+                                LocationUtils.getMaxX(id), LocationUtils.getMaxZ(id), player.getName(), null, true,
+                                false);
+                        PlotManager.createPlot(plot);
+                    }
+                } else {
 					player.sendMessage(displayHelpMessage());
 				}
 			} else {

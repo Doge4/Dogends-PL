@@ -1,3 +1,7 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.chat.commands;
 
 import org.bukkit.command.Command;
@@ -17,14 +21,14 @@ public class VIP implements CommandExecutor {
 		if (command.getName().equalsIgnoreCase("vip")) {
 			if (sender instanceof Player) {
 				Player p = (Player) sender;
-				StringBuilder builder = new StringBuilder("§a§m---------------§2 VIP §a§m---------------\n");
-				builder.append("§a Ranga ta otrzymuje nastepujace, dodatkowe funkcje:\n");
-				builder.append("§a - wlasna ranga;\n");
-				builder.append("§a - rozne dodatki w menu kosmetycznym;\n");
-				builder.append("§a - mozliwosc aplikowania na moderatora;\n");
-				builder.append("§a Nastepne dodatki zostana dodane w przyszlosci!");
-				p.sendMessage(builder.toString());
-			} else {
+                StringBuilder builder = new StringBuilder("Â§aÂ§m---------------Â§2 VIP Â§aÂ§m---------------\n");
+                builder.append("Â§a Ranga ta otrzymuje nastepujace, dodatkowe funkcje:\n");
+                builder.append("Â§a - wlasna ranga;\n");
+                builder.append("Â§a - rozne dodatki w menu kosmetycznym;\n");
+                builder.append("Â§a - mozliwosc aplikowania na moderatora;\n");
+                builder.append("Â§a Nastepne dodatki zostana dodane w przyszlosci!");
+                p.sendMessage(builder.toString());
+            } else {
 				sender.sendMessage("Przeciez ty to wiesz! :)");
 			}
 		}

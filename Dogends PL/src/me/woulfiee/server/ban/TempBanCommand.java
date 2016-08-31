@@ -1,7 +1,10 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.ban;
 
-import java.util.HashMap;
-
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -10,7 +13,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.woulfiee.server.chat.ranks.Ranks;
+import java.util.HashMap;
 
 /**
  * 
@@ -31,7 +34,7 @@ public class TempBanCommand implements CommandExecutor {
 			int days = seconds / 86400;
 			seconds %= 86400;
 
-			message = message + days + " Dzieñ (Dni) ";
+			message = message + days + " DzieÂ§ (Dni) ";
 		}
 		if (seconds >= 3600) {
 			int hours = seconds / 3600;
@@ -62,13 +65,13 @@ public class TempBanCommand implements CommandExecutor {
 			Player player = (Player) sender;
 			if (command.getName().equalsIgnoreCase("tempban")) {
 				if (args.length != 3) {
-					player.sendMessage("§6[Ban] §cZa du¿o/ma³o argumentów!");
+					player.sendMessage("Â§6[Ban] Â§cZa duÂ§o/maÂ§o argumentÂ§w!");
 				} else {
 					Player target = Bukkit.getServer().getPlayer(args[0]);
 					if (!(Ranks.getAdmins().contains(player.getUniqueId().toString())
 							|| Ranks.getMods().contains(player.getUniqueId().toString())
 							|| Ranks.getOwners().contains(player.getUniqueId().toString()))) {
-						player.sendMessage("§6[Ban] §cNie masz pozwolenia!");
+						player.sendMessage("Â§6[Ban] Â§cNie masz pozwolenia!");
 					} else {
 						OfflinePlayer targetp = Bukkit.getServer().getOfflinePlayer(args[0]);
 						long endOfBan = System.currentTimeMillis()
@@ -82,7 +85,7 @@ public class TempBanCommand implements CommandExecutor {
 							String message = getMSG(endOfBan);
 
 							Bukkit.getServer()
-									.broadcastMessage("§6[Ban] " + ChatColor.GREEN + "Gracz " + ChatColor.AQUA
+									.broadcastMessage("Â§6[Ban] " + ChatColor.GREEN + "Gracz " + ChatColor.AQUA
 											+ targetp.getName() + ChatColor.GREEN + " zostal zbanowany na "
 											+ ChatColor.AQUA + message);
 							target.kickPlayer("[Ban] Zostales tymczasowo zbanowany na " + message);
@@ -94,7 +97,7 @@ public class TempBanCommand implements CommandExecutor {
 		} else {
 			if (command.getName().equalsIgnoreCase("tempban")) {
 				if (args.length != 3) {
-					sender.sendMessage("§6[Ban] §cZa duzo/malo argumentow!");
+					sender.sendMessage("Â§6[Ban] Â§cZa duzo/malo argumentow!");
 				} else {
 					OfflinePlayer targetp = Bukkit.getServer().getOfflinePlayer(args[0]);
 					long endOfBan = System.currentTimeMillis() + BanUnit.getTicks(args[2], Integer.parseInt(args[1]));
@@ -110,8 +113,8 @@ public class TempBanCommand implements CommandExecutor {
 							if (!(Ranks.getAdmins().contains(p.getUniqueId().toString())
 									|| Ranks.getMods().contains(p.getUniqueId().toString())
 									|| Ranks.getOwners().contains(p.getUniqueId().toString()))) {
-								p.sendMessage("§6[Ban] §e" + p.getName() + " §azbanowal §e" + targetp.getName()
-										+ " §ado §e" + getMSG(endOfBan) + "§a!");
+								p.sendMessage("Â§6[Ban] Â§e" + p.getName() + " Â§azbanowal Â§e" + targetp.getName()
+										+ " Â§ado Â§e" + getMSG(endOfBan) + "Â§a!");
 							}
 						}
 						if (targetp.isOnline()) {

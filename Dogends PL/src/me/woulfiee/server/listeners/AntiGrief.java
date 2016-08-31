@@ -1,5 +1,11 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.listeners;
 
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -9,11 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockDamageEvent;
-import org.bukkit.event.block.BlockGrowEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.block.LeavesDecayEvent;
+import org.bukkit.event.block.*;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.EntityDamageEvent;
@@ -25,9 +27,6 @@ import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.scheduler.BukkitRunnable;
-
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -72,7 +71,7 @@ public class AntiGrief implements Listener {
 		if (e.getPlayer().getLocation().getWorld().getName().equals("world")) {
 			if (!(Ranks.isAdmin(e.getPlayer()) || Ranks.isBuilder(e.getPlayer()) || Ranks.isOwner(e.getPlayer()))) {
 				if (blockbreakplace) {
-					e.getPlayer().sendMessage("§6[Ochrona] §cNie mozesz niszczyc tutaj blokow!");
+					e.getPlayer().sendMessage("Â§6[Ochrona] Â§cNie mozesz niszczyc tutaj blokow!");
 					e.setCancelled(true);
 				}
 			}
@@ -88,7 +87,7 @@ public class AntiGrief implements Listener {
 			if (!(Ranks.isAdmin(e.getPlayer()) || Ranks.isBuilder(e.getPlayer()) || Ranks.isOwner(e.getPlayer()))) {
 				if (blockbreakplace) {
 					e.setCancelled(true);
-					e.getPlayer().sendMessage("§6[Ochrona] §cNie mozesz niszczyc tutaj blokow!");
+					e.getPlayer().sendMessage("Â§6[Ochrona] Â§cNie mozesz niszczyc tutaj blokow!");
 				}
 			}
 		}
@@ -169,7 +168,7 @@ public class AntiGrief implements Listener {
 		if (player.getLocation().getWorld().getName().equals("world")) {
 			if (!(Ranks.isAdmin(e.getPlayer()) || Ranks.isBuilder(e.getPlayer()) || Ranks.isOwner(e.getPlayer()))) {
 				if (blockbreakplace) {
-					e.getPlayer().sendMessage("§6[Ochrona] §cNie mozesz stawiac tutaj blokow!");
+					e.getPlayer().sendMessage("Â§6[Ochrona] Â§cNie mozesz stawiac tutaj blokow!");
 					e.setCancelled(true);
 				}
 			}
@@ -183,7 +182,7 @@ public class AntiGrief implements Listener {
 		if (player.getLocation().getWorld().getName().equals("world")) {
 			if (!(Ranks.isAdmin(e.getPlayer()) || Ranks.isBuilder(e.getPlayer()) || Ranks.isOwner(e.getPlayer()))) {
 				if (blockbreakplace) {
-					e.getPlayer().sendMessage("§6[Ochrona] §cNie mozesz niszczyc tutaj blokow!");
+					e.getPlayer().sendMessage("Â§6[Ochrona] Â§cNie mozesz niszczyc tutaj blokow!");
 					e.setCancelled(true);
 				}
 			}
@@ -218,7 +217,7 @@ public class AntiGrief implements Listener {
 			if (!(Ranks.isAdmin(e.getPlayer()) || Ranks.isBuilder(e.getPlayer()) || Ranks.isOwner(e.getPlayer()))) {
 				if (blockbreakplace) {
 					e.setCancelled(true);
-					e.getPlayer().sendMessage("§6[Ochrona] §cNie mozesz stawiac tutaj blokow!");
+					e.getPlayer().sendMessage("Â§6[Ochrona] Â§cNie mozesz stawiac tutaj blokow!");
 				}
 			}
 		}

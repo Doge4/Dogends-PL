@@ -1,13 +1,16 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.listeners.commands;
 
+import me.woulfiee.server.chat.ranks.Ranks;
+import me.woulfiee.server.listeners.AntiGrief;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.woulfiee.server.chat.ranks.Ranks;
-import me.woulfiee.server.listeners.AntiGrief;
 
 public class AntiGriefCommands implements CommandExecutor {
 
@@ -20,38 +23,38 @@ public class AntiGriefCommands implements CommandExecutor {
 					if (AntiGrief.blockbreakplace) {
 						AntiGrief.blockbreakplace = false;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName()
-									+ " §awlaczyl mozliwosc budowania na calym swiecie");
-						}
-						player.sendMessage("§6[Ochrona] §aWlaczyles mozliwosc budowania na calym swiecie");
-					} else {
-						AntiGrief.blockbreakplace = true;
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName()
+                                    + " Â§awlaczyl mozliwosc budowania na calym swiecie");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWlaczyles mozliwosc budowania na calym swiecie");
+                    } else {
+                        AntiGrief.blockbreakplace = true;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName()
-									+ " §awylaczyl mozliwosc budowania na calym swiecie");
-						}
-						player.sendMessage("§6[Ochrona] §aWylaczyles mozliwosc budowania na calym swiecie");
-					}
-				} else {
-					player.sendMessage("§6[Ochrona] §cNie masz pozwolenia!");
-				}
-			} else {
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName()
+                                    + " Â§awylaczyl mozliwosc budowania na calym swiecie");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWylaczyles mozliwosc budowania na calym swiecie");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Ochrona] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (AntiGrief.blockbreakplace) {
 					AntiGrief.blockbreakplace = false;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName()
-								+ " §awlaczyl mozliwosc budowania na calym swiecie");
-					}
-					sender.sendMessage("§6[Ochrona] §aWlaczyles mozliwosc budowania na calym swiecie");
-				} else {
-					AntiGrief.blockbreakplace = true;
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName()
+                                + " Â§awlaczyl mozliwosc budowania na calym swiecie");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWlaczyles mozliwosc budowania na calym swiecie");
+                } else {
+                    AntiGrief.blockbreakplace = true;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName()
-								+ " §awylaczyl mozliwosc budowania na calym swiecie");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles mozliwosc budowania na calym swiecie");
-				}
-			}
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName()
+                                + " Â§awylaczyl mozliwosc budowania na calym swiecie");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles mozliwosc budowania na calym swiecie");
+                }
+            }
 		} else if (command.getName().equalsIgnoreCase("toggleexplosion")) {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
@@ -59,34 +62,34 @@ public class AntiGriefCommands implements CommandExecutor {
 					if (AntiGrief.blockexplosion) {
 						AntiGrief.blockexplosion = false;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awlaczyl eksplozje");
-						}
-						player.sendMessage("§6[Ochrona] §aWlaczyles eksplozje");
-					} else {
-						AntiGrief.blockexplosion = true;
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awlaczyl eksplozje");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWlaczyles eksplozje");
+                    } else {
+                        AntiGrief.blockexplosion = true;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awylaczyl eksplozje");
-						}
-						player.sendMessage("§6[Ochrona] §aWylaczyles eksplozje");
-					}
-				} else {
-					player.sendMessage("§6[Ochrona] §cNie masz pozwolenia!");
-				}
-			} else {
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awylaczyl eksplozje");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWylaczyles eksplozje");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Ochrona] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (AntiGrief.blockexplosion) {
 					AntiGrief.blockexplosion = false;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awlaczyl eksplozje");
-					}
-					sender.sendMessage("§6[Ochrona] §aWlaczyles eksplozje");
-				} else {
-					AntiGrief.blockexplosion = true;
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awlaczyl eksplozje");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWlaczyles eksplozje");
+                } else {
+                    AntiGrief.blockexplosion = true;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awylaczyl eksplozje");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles eksplozje");
-				}
-			}
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awylaczyl eksplozje");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles eksplozje");
+                }
+            }
 
 		} else if (command.getName().equalsIgnoreCase("togglepve")) {
 			if (sender instanceof Player) {
@@ -95,34 +98,34 @@ public class AntiGriefCommands implements CommandExecutor {
 					if (AntiGrief.blockpve) {
 						AntiGrief.blockpve = false;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awlaczyl pve");
-						}
-						player.sendMessage("§6[Ochrona] §aWlaczyles pve");
-					} else {
-						AntiGrief.blockpve = true;
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awlaczyl pve");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWlaczyles pve");
+                    } else {
+                        AntiGrief.blockpve = true;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awylaczyl pve");
-						}
-						player.sendMessage("§6[Ochrona] §aWylaczyles pve");
-					}
-				} else {
-					player.sendMessage("§6[Ochrona] §cNie masz pozwolenia!");
-				}
-			} else {
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awylaczyl pve");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWylaczyles pve");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Ochrona] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (AntiGrief.blockpve) {
 					AntiGrief.blockpve = false;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awlaczyl pve");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles pve");
-				} else {
-					AntiGrief.blockpve = true;
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awlaczyl pve");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles pve");
+                } else {
+                    AntiGrief.blockpve = true;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awylaczyl pve");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles pve");
-				}
-			}
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awylaczyl pve");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles pve");
+                }
+            }
 
 		} else if (command.getName().equalsIgnoreCase("togglepvp")) {
 			if (sender instanceof Player) {
@@ -131,34 +134,34 @@ public class AntiGriefCommands implements CommandExecutor {
 					if (AntiGrief.blockpvp) {
 						AntiGrief.blockpvp = false;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awlaczyl pvp");
-						}
-						player.sendMessage("§6[Ochrona] §aWlaczyles pvp");
-					} else {
-						AntiGrief.blockpvp = true;
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awlaczyl pvp");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWlaczyles pvp");
+                    } else {
+                        AntiGrief.blockpvp = true;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awylaczyl pvp");
-						}
-						player.sendMessage("§6[Ochrona] §aWylaczyles pvp");
-					}
-				} else {
-					player.sendMessage("§6[Ochrona] §cNie masz pozwolenia!");
-				}
-			} else {
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awylaczyl pvp");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWylaczyles pvp");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Ochrona] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (AntiGrief.blockpvp) {
 					AntiGrief.blockpvp = false;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awlaczyl pvp");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles pvp");
-				} else {
-					AntiGrief.blockpvp = true;
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awlaczyl pvp");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles pvp");
+                } else {
+                    AntiGrief.blockpvp = true;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awylaczyl pvp");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles pvp");
-				}
-			}
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awylaczyl pvp");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles pvp");
+                }
+            }
 
 		} else if (command.getName().equalsIgnoreCase("toggleleafdecay")) {
 			if (sender instanceof Player) {
@@ -167,34 +170,34 @@ public class AntiGriefCommands implements CommandExecutor {
 					if (AntiGrief.blockleafdecay) {
 						AntiGrief.blockleafdecay = false;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awlaczyl obumieranie lisci");
-						}
-						player.sendMessage("§6[Ochrona] §aWlaczyles eksplozje");
-					} else {
-						AntiGrief.blockleafdecay = true;
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awlaczyl obumieranie lisci");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWlaczyles eksplozje");
+                    } else {
+                        AntiGrief.blockleafdecay = true;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awylaczyl obumieranie lisci");
-						}
-						player.sendMessage("§6[Ochrona] §aWylaczyles obumieranie lisci");
-					}
-				} else {
-					player.sendMessage("§6[Ochrona] §cNie masz pozwolenia!");
-				}
-			} else {
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awylaczyl obumieranie lisci");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWylaczyles obumieranie lisci");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Ochrona] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (AntiGrief.blockleafdecay) {
 					AntiGrief.blockleafdecay = false;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awlaczyl obumieranie lisci");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles obumieranie lisci");
-				} else {
-					AntiGrief.blockleafdecay = true;
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awlaczyl obumieranie lisci");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles obumieranie lisci");
+                } else {
+                    AntiGrief.blockleafdecay = true;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awylaczyl obumieranie lisci");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles obumieranie lisci");
-				}
-			}
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awylaczyl obumieranie lisci");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles obumieranie lisci");
+                }
+            }
 
 		} else if (command.getName().equalsIgnoreCase("togglearmorstand")) {
 			if (sender instanceof Player) {
@@ -204,37 +207,37 @@ public class AntiGriefCommands implements CommandExecutor {
 						AntiGrief.blockarmorstanditemframemanipulation = false;
 						for (Player p : Bukkit.getOnlinePlayers()) {
 							p.sendMessage(
-									"§6[Ochrona] §e" + player.getName() + " §awlaczyl manipulacje stojakami i ramkami");
-						}
-						player.sendMessage("§6[Ochrona] §aWlaczyles eksplozje");
-					} else {
-						AntiGrief.blockarmorstanditemframemanipulation = true;
+                                    "Â§6[Ochrona] Â§e" + player.getName() + " Â§awlaczyl manipulacje stojakami i ramkami");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWlaczyles eksplozje");
+                    } else {
+                        AntiGrief.blockarmorstanditemframemanipulation = true;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName()
-									+ " §awylaczyl manipulacje stojakami i ramkami");
-						}
-						player.sendMessage("§6[Ochrona] §aWylaczyles manipulacje stojakami i ramkami");
-					}
-				} else {
-					player.sendMessage("§6[Ochrona] §cNie masz pozwolenia!");
-				}
-			} else {
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName()
+                                    + " Â§awylaczyl manipulacje stojakami i ramkami");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWylaczyles manipulacje stojakami i ramkami");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Ochrona] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (AntiGrief.blockarmorstanditemframemanipulation) {
 					AntiGrief.blockarmorstanditemframemanipulation = false;
 					for (Player p : Bukkit.getOnlinePlayers()) {
 						p.sendMessage(
-								"§6[Ochrona] §e" + sender.getName() + " §awlaczyl manipulacje stojakami i ramkami");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles manipulacje stojakami i ramkami");
-				} else {
-					AntiGrief.blockarmorstanditemframemanipulation = true;
+                                "Â§6[Ochrona] Â§e" + sender.getName() + " Â§awlaczyl manipulacje stojakami i ramkami");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles manipulacje stojakami i ramkami");
+                } else {
+                    AntiGrief.blockarmorstanditemframemanipulation = true;
 					for (Player p : Bukkit.getOnlinePlayers()) {
 						p.sendMessage(
-								"§6[Ochrona] §e" + sender.getName() + " §awylaczyl manipulacje stojakami i ramkami");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles manipulacje stojakami i ramkami");
-				}
-			}
+                                "Â§6[Ochrona] Â§e" + sender.getName() + " Â§awylaczyl manipulacje stojakami i ramkami");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles manipulacje stojakami i ramkami");
+                }
+            }
 
 		} else if (command.getName().equalsIgnoreCase("toggleweatherchange")) {
 			if (sender instanceof Player) {
@@ -243,34 +246,34 @@ public class AntiGriefCommands implements CommandExecutor {
 					if (AntiGrief.blockweatherchange) {
 						AntiGrief.blockweatherchange = false;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awlaczyl zmiany pogody");
-						}
-						player.sendMessage("§6[Ochrona] §aWlaczyles eksplozje");
-					} else {
-						AntiGrief.blockweatherchange = true;
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awlaczyl zmiany pogody");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWlaczyles eksplozje");
+                    } else {
+                        AntiGrief.blockweatherchange = true;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awylaczyl zmiany pogody");
-						}
-						player.sendMessage("§6[Ochrona] §aWylaczyles zmiany pogody");
-					}
-				} else {
-					player.sendMessage("§6[Ochrona] §cNie masz pozwolenia!");
-				}
-			} else {
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awylaczyl zmiany pogody");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWylaczyles zmiany pogody");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Ochrona] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (AntiGrief.blockweatherchange) {
 					AntiGrief.blockweatherchange = false;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awlaczyl zmiany pogody");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles zmiany pogody");
-				} else {
-					AntiGrief.blockweatherchange = true;
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awlaczyl zmiany pogody");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles zmiany pogody");
+                } else {
+                    AntiGrief.blockweatherchange = true;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awylaczyl zmiany pogody");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles zmiany pogody");
-				}
-			}
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awylaczyl zmiany pogody");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles zmiany pogody");
+                }
+            }
 		} else if (command.getName().equalsIgnoreCase("toggleblockgrow")) {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
@@ -278,34 +281,34 @@ public class AntiGriefCommands implements CommandExecutor {
 					if (AntiGrief.blockgrowing) {
 						AntiGrief.blockgrowing = false;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awlaczyl wzrost blokow");
-						}
-						player.sendMessage("§6[Ochrona] §aWlaczyles eksplozje");
-					} else {
-						AntiGrief.blockgrowing = true;
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awlaczyl wzrost blokow");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWlaczyles eksplozje");
+                    } else {
+                        AntiGrief.blockgrowing = true;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awylaczyl wzrost blokow");
-						}
-						player.sendMessage("§6[Ochrona] §aWylaczyles wzrost blokow");
-					}
-				} else {
-					player.sendMessage("§6[Ochrona] §cNie masz pozwolenia!");
-				}
-			} else {
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awylaczyl wzrost blokow");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWylaczyles wzrost blokow");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Ochrona] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (AntiGrief.blockgrowing) {
 					AntiGrief.blockgrowing = false;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awlaczyl wzrost blokow");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles wzrost blokow");
-				} else {
-					AntiGrief.blockgrowing = true;
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awlaczyl wzrost blokow");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles wzrost blokow");
+                } else {
+                    AntiGrief.blockgrowing = true;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awylaczyl wzrost blokow");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles wzrost blokow");
-				}
-			}
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awylaczyl wzrost blokow");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles wzrost blokow");
+                }
+            }
 
 		} else if (command.getName().equalsIgnoreCase("toggledaynightcycle")) {
 			if (sender instanceof Player) {
@@ -314,34 +317,34 @@ public class AntiGriefCommands implements CommandExecutor {
 					if (AntiGrief.blockdaynightcycle) {
 						AntiGrief.blockdaynightcycle = false;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awlaczyl zmiane pory dnia");
-						}
-						player.sendMessage("§6[Ochrona] §aWlaczyles eksplozje");
-					} else {
-						AntiGrief.blockdaynightcycle = true;
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awlaczyl zmiane pory dnia");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWlaczyles eksplozje");
+                    } else {
+                        AntiGrief.blockdaynightcycle = true;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awylaczyl zmiane pory dnia");
-						}
-						player.sendMessage("§6[Ochrona] §aWylaczyles zmiane pory dnia");
-					}
-				} else {
-					player.sendMessage("§6[Ochrona] §cNie masz pozwolenia!");
-				}
-			} else {
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awylaczyl zmiane pory dnia");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWylaczyles zmiane pory dnia");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Ochrona] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (AntiGrief.blockdaynightcycle) {
 					AntiGrief.blockdaynightcycle = false;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awlaczyl zmiane pory dnia");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles zmiane pory dnia");
-				} else {
-					AntiGrief.blockdaynightcycle = true;
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awlaczyl zmiane pory dnia");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles zmiane pory dnia");
+                } else {
+                    AntiGrief.blockdaynightcycle = true;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awylaczyl zmiane pory dnia");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles zmiane pory dnia");
-				}
-			}
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awylaczyl zmiane pory dnia");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles zmiane pory dnia");
+                }
+            }
 		} else if (command.getName().equalsIgnoreCase("togglemobspawn")) {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
@@ -349,34 +352,34 @@ public class AntiGriefCommands implements CommandExecutor {
 					if (AntiGrief.blockmobspawn) {
 						AntiGrief.blockmobspawn = false;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awlaczyl spawnowanie sie mobow");
-						}
-						player.sendMessage("§6[Ochrona] §aWlaczyles eksplozje");
-					} else {
-						AntiGrief.blockmobspawn = true;
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awlaczyl spawnowanie sie mobow");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWlaczyles eksplozje");
+                    } else {
+                        AntiGrief.blockmobspawn = true;
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							p.sendMessage("§6[Ochrona] §e" + player.getName() + " §awylaczyl spawnowanie sie mobow");
-						}
-						player.sendMessage("§6[Ochrona] §aWylaczyles spawnowanie sie mobow");
-					}
-				} else {
-					player.sendMessage("§6[Ochrona] §cNie masz pozwolenia!");
-				}
-			} else {
+                            p.sendMessage("Â§6[Ochrona] Â§e" + player.getName() + " Â§awylaczyl spawnowanie sie mobow");
+                        }
+                        player.sendMessage("Â§6[Ochrona] Â§aWylaczyles spawnowanie sie mobow");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Ochrona] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (AntiGrief.blockmobspawn) {
 					AntiGrief.blockmobspawn = false;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awlaczyl spawnowanie sie mobow");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles spawnowanie sie mobow");
-				} else {
-					AntiGrief.blockmobspawn = true;
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awlaczyl spawnowanie sie mobow");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles spawnowanie sie mobow");
+                } else {
+                    AntiGrief.blockmobspawn = true;
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.sendMessage("§6[Ochrona] §e" + sender.getName() + " §awylaczyl spawnowanie sie mobow");
-					}
-					sender.sendMessage("§6[Ochrona] §aWylaczyles spawnowanie sie mobow");
-				}
-			}
+                        p.sendMessage("Â§6[Ochrona] Â§e" + sender.getName() + " Â§awylaczyl spawnowanie sie mobow");
+                    }
+                    sender.sendMessage("Â§6[Ochrona] Â§aWylaczyles spawnowanie sie mobow");
+                }
+            }
 		}
 		return false;
 	}

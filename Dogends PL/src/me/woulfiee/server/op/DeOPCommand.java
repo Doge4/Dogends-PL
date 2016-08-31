@@ -1,13 +1,16 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.op;
 
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -26,29 +29,29 @@ public class DeOPCommand implements CommandExecutor {
 						OfflinePlayer targetPlayer = Bukkit.getOfflinePlayer(args[0]);
 						if (targetPlayer.isOp()) {
 							targetPlayer.setOp(false);
-							player.sendMessage("§6[OP] §aGraczowi odebrano uprawnienia operatora!");
-						} else {
-							player.sendMessage("§6[OP] §cGracz nie jest operatorem!");
-						}
-					} else {
-						player.sendMessage("§6[OP] §cZa malo argumentow!");
-					}
-				} else {
-					player.sendMessage("§6[OP] §cNie masz pozwolenia!");
-				}
-			} else {
+                            player.sendMessage("Â§6[OP] Â§aGraczowi odebrano uprawnienia operatora!");
+                        } else {
+                            player.sendMessage("Â§6[OP] Â§cGracz nie jest operatorem!");
+                        }
+                    } else {
+                        player.sendMessage("Â§6[OP] Â§cZa malo argumentow!");
+                    }
+                } else {
+                    player.sendMessage("Â§6[OP] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (args.length >= 1) {
 					OfflinePlayer targetPlayer = Bukkit.getOfflinePlayer(args[0]);
 					if (targetPlayer.isOp()) {
 						targetPlayer.setOp(false);
-						sender.sendMessage("§6[OP] §aGraczowi odebrano uprawnienia operatora!");
-					} else {
-						sender.sendMessage("§6[OP] §cGracz nie jest operatorem!");
-					}
-				} else {
-					sender.sendMessage("§6[OP] §cZa malo argumentow!");
-				}
-			}
+                        sender.sendMessage("Â§6[OP] Â§aGraczowi odebrano uprawnienia operatora!");
+                    } else {
+                        sender.sendMessage("Â§6[OP] Â§cGracz nie jest operatorem!");
+                    }
+                } else {
+                    sender.sendMessage("Â§6[OP] Â§cZa malo argumentow!");
+                }
+            }
 		}
 		return false;
 	}

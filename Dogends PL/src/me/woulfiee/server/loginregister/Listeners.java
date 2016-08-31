@@ -1,5 +1,11 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.loginregister;
 
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -9,9 +15,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -29,32 +32,32 @@ public class Listeners implements Listener {
 						try {
 							Thread.sleep(1000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Logowanie] §aZaloguj sie wpisujac §e/login <haslo>§a!");
+								player.sendMessage("Â§6[Logowanie] Â§aZaloguj sie wpisujac Â§e/login <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Logowanie] §aZaloguj sie wpisujac §e/login <haslo>§a!");
+								player.sendMessage("Â§6[Logowanie] Â§aZaloguj sie wpisujac Â§e/login <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Logowanie] §aZaloguj sie wpisujac §e/login <haslo>§a!");
+								player.sendMessage("Â§6[Logowanie] Â§aZaloguj sie wpisujac Â§e/login <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Logowanie] §aZaloguj sie wpisujac §e/login <haslo>§a!");
+								player.sendMessage("Â§6[Logowanie] Â§aZaloguj sie wpisujac Â§e/login <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Logowanie] §aZaloguj sie wpisujac §e/login <haslo>§a!");
+								player.sendMessage("Â§6[Logowanie] Â§aZaloguj sie wpisujac Â§e/login <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Logowanie] §aZaloguj sie wpisujac §e/login <haslo>§a!");
+								player.sendMessage("Â§6[Logowanie] Â§aZaloguj sie wpisujac Â§e/login <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
 								player.kickPlayer(
-										"§6§lDOGENDS\n\n        §cCzas logowania minal! Zaloguj sie ponownie!");
+										"Â§6Â§lDOGENDS\n\n        Â§cCzas logowania minal! Zaloguj sie ponownie!");
 						} catch (InterruptedException e) {
 						}
 
@@ -71,32 +74,32 @@ public class Listeners implements Listener {
 						try {
 							Thread.sleep(1000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Rejestracja] §aZarejestruj sie wpisujac §e/register <haslo>§a!");
+								player.sendMessage("Â§6[Rejestracja] Â§aZarejestruj sie wpisujac Â§e/register <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Rejestracja] §aZarejestruj sie wpisujac §e/register <haslo>§a!");
+								player.sendMessage("Â§6[Rejestracja] Â§aZarejestruj sie wpisujac Â§e/register <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Rejestracja] §aZarejestruj sie wpisujac §e/register <haslo>§a!");
+								player.sendMessage("Â§6[Rejestracja] Â§aZarejestruj sie wpisujac Â§e/register <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Rejestracja] §aZarejestruj sie wpisujac §e/register <haslo>§a!");
+								player.sendMessage("Â§6[Rejestracja] Â§aZarejestruj sie wpisujac Â§e/register <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Rejestracja] §aZarejestruj sie wpisujac §e/register <haslo>§a!");
+								player.sendMessage("Â§6[Rejestracja] Â§aZarejestruj sie wpisujac Â§e/register <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
-								player.sendMessage("§6[Rejestracja] §aZarejestruj sie wpisujac §e/register <haslo>§a!");
+								player.sendMessage("Â§6[Rejestracja] Â§aZarejestruj sie wpisujac Â§e/register <haslo>Â§a!");
 							if (!Login.isLoggedIn(player))
 								Thread.sleep(3000);
 							if (!Login.isLoggedIn(player))
 								player.kickPlayer(
-										"§6§lDOGENDS\n\n        §cCzas rejestracji minal! Zaloguj sie ponownie!");
+										"Â§6Â§lDOGENDS\n\n        Â§cCzas rejestracji minal! Zaloguj sie ponownie!");
 						} catch (InterruptedException e) {
 						}
 					}
@@ -123,14 +126,14 @@ public class Listeners implements Listener {
 	@EventHandler
 	public void onPlayerJoin(final PlayerJoinEvent e) {
 		if (!Ranks.isStaff(e.getPlayer())) {
-			e.setJoinMessage("§7§l§o>>> §eGracz " + e.getPlayer().getName() + " dolaczyl do gry!");
+			e.setJoinMessage("Â§7Â§lÂ§o>>> Â§eGracz " + e.getPlayer().getName() + " dolaczyl do gry!");
 		} else {
 			e.setJoinMessage(null);
 		}
 		final Player p = e.getPlayer();
 		if (!p.hasPlayedBefore()) {
 			e.setJoinMessage(null);
-			p.kickPlayer("§6§lDOGENDS\n\n         §eWeryfikacja konta zakonczona, zaloguj sie ponownie!");
+			p.kickPlayer("Â§6Â§lDOGENDS\n\n         Â§eWeryfikacja konta zakonczona, zaloguj sie ponownie!");
 		}
 		if (Bukkit.getWorld("world") != null) {
 			Location loc = new Location(Bukkit.getWorld("world"), -954.5, 29, -594.5, 90, 0);
@@ -142,7 +145,7 @@ public class Listeners implements Listener {
 	@EventHandler
 	public void onPlayerLeave(PlayerQuitEvent e) {
 		if (!Ranks.isStaff(e.getPlayer())) {
-			e.setQuitMessage("§7§l§o>>> §eGracz " + e.getPlayer().getName() + " wyszedl z gry!");
+			e.setQuitMessage("Â§7Â§lÂ§o>>> Â§eGracz " + e.getPlayer().getName() + " wyszedl z gry!");
 		} else {
 			e.setQuitMessage(null);
 		}

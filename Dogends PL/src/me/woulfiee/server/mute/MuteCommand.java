@@ -1,7 +1,11 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.mute;
 
-import java.util.ArrayList;
-
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -10,8 +14,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
+import java.util.ArrayList;
 
 /**
  * 
@@ -36,26 +39,26 @@ public class MuteCommand implements CommandExecutor, Listener {
 								muted.add(p.getUniqueId().toString());
 								Dogends.getMain().getConfig().set("Muted", muted);
 								Dogends.getMain().saveConfig();
-								player.sendMessage("§6[Czat] §aGracz wyciszony!");
-								p.sendMessage("§6[Czat] §aZostales wyciszony!");
-							} else {
-								muted.remove(p.getUniqueId().toString());
+                                player.sendMessage("Â§6[Czat] Â§aGracz wyciszony!");
+                                p.sendMessage("Â§6[Czat] Â§aZostales wyciszony!");
+                            } else {
+                                muted.remove(p.getUniqueId().toString());
 								Dogends.getMain().getConfig().set("Muted." + p.getUniqueId().toString(), muted);
 								Dogends.getMain().saveConfig();
-								player.sendMessage("§6[Czat] §aGracz moze mowic!");
-								p.sendMessage("§6[Czat] §aMozesz juz mowic!");
+                                player.sendMessage("Â§6[Czat] Â§aGracz moze mowic!");
+                                p.sendMessage("Â§6[Czat] Â§aMozesz juz mowic!");
 
 							}
 						} else {
-							player.sendMessage("§6[Czat] §cTen gracz nie moze zostac wyciszony!");
-						}
-					} else {
-						player.sendMessage("§6[Czat] §cZa malo argumentow!");
-					}
-				} else {
-					player.sendMessage("§6[Czat] §cNie masz pozwolenia!");
-				}
-			} else {
+                            player.sendMessage("Â§6[Czat] Â§cTen gracz nie moze zostac wyciszony!");
+                        }
+                    } else {
+                        player.sendMessage("Â§6[Czat] Â§cZa malo argumentow!");
+                    }
+                } else {
+                    player.sendMessage("Â§6[Czat] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (args.length == 1) {
 					Player p = sender.getServer().getPlayer(args[0]);
 					ArrayList<String> muted = (ArrayList<String>) Dogends.getMain().getConfig().getStringList("Muted");
@@ -63,20 +66,20 @@ public class MuteCommand implements CommandExecutor, Listener {
 						muted.add(p.getUniqueId().toString());
 						Dogends.getMain().getConfig().set("Muted", muted);
 						Dogends.getMain().saveConfig();
-						sender.sendMessage("§6[Czat] §aGracz wyciszony!");
-						p.sendMessage("§6[Czat] §aZostales wyciszony!");
-					} else {
-						muted.remove(p.getUniqueId().toString());
+                        sender.sendMessage("Â§6[Czat] Â§aGracz wyciszony!");
+                        p.sendMessage("Â§6[Czat] Â§aZostales wyciszony!");
+                    } else {
+                        muted.remove(p.getUniqueId().toString());
 						Dogends.getMain().getConfig().set("Muted." + p.getUniqueId().toString(), muted);
 						Dogends.getMain().saveConfig();
-						sender.sendMessage("§6[Czat] §aGracz moze mowic!");
-						p.sendMessage("§6[Czat] §aMozesz juz mowic!");
-					}
+                        sender.sendMessage("Â§6[Czat] Â§aGracz moze mowic!");
+                        p.sendMessage("Â§6[Czat] Â§aMozesz juz mowic!");
+                    }
 
 				} else {
-					sender.sendMessage("§6[Czat] §cZa malo argumentow!");
-				}
-			}
+                    sender.sendMessage("Â§6[Czat] Â§cZa malo argumentow!");
+                }
+            }
 		}
 		return false;
 	}
@@ -86,8 +89,8 @@ public class MuteCommand implements CommandExecutor, Listener {
 		ArrayList<String> muted = (ArrayList<String>) Dogends.getMain().getConfig().getStringList("Muted");
 		if (muted.contains(e.getPlayer().getUniqueId().toString())) {
 			e.setCancelled(true);
-			e.getPlayer().sendMessage("§6[Czat] §cJestes wyciszony!");
-		}
+            e.getPlayer().sendMessage("Â§6[Czat] Â§cJestes wyciszony!");
+        }
 
 	}
 

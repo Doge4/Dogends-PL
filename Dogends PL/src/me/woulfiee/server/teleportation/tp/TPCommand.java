@@ -1,5 +1,10 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.teleportation.tp;
 
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -7,8 +12,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -28,11 +31,11 @@ public class TPCommand implements CommandExecutor {
 						Location targetPlayerLocation = targetPlayer.getLocation();
 						if (targetPlayer.isOnline()) {
 							p.teleport(targetPlayerLocation);
-							p.sendMessage("§6[TP] §aZostales przeteleportowany do §e" + targetPlayer.getName() + "§e!");
-						} else {
-							p.sendMessage("§6[TP] §cGracz §e" + targetPlayer.getName() + " §cnie jest online!");
-						}
-					} else if (args.length == 2) {
+                            p.sendMessage("Â§6[TP] Â§aZostales przeteleportowany do Â§e" + targetPlayer.getName() + "Â§e!");
+                        } else {
+                            p.sendMessage("Â§6[TP] Â§cGracz Â§e" + targetPlayer.getName() + " Â§cnie jest online!");
+                        }
+                    } else if (args.length == 2) {
 						Player player = p.getServer().getPlayer(args[0]);
 						Player targetPlayer = p.getServer().getPlayer(args[1]);
 						if (player.isOnline()) {
@@ -40,27 +43,27 @@ public class TPCommand implements CommandExecutor {
 
 								Location targetPlayerLocation = targetPlayer.getLocation();
 								player.teleport(targetPlayerLocation);
-								p.sendMessage("§6[TP] §e" + player.getName() + " §azostal przeteleportowany do §e"
-										+ targetPlayer.getName() + "§e!");
-								player.sendMessage(
-										"§6[TP] §aZostales przeteleportowany do §e" + targetPlayer.getName() + "§a!");
-								targetPlayer.sendMessage(
-										"§6[TP] §e" + player.getName() + " §azostal przeteleportowany do §eCiebie§a!");
-							} else {
-								p.sendMessage("§6[TP] §e" + targetPlayer.getName() + " §cnie jest online!");
-							}
-						} else {
-							p.sendMessage("§6[TP] §e" + player.getName() + " §cnie jest online!");
-						}
-					} else if (args.length == 3) {
+                                p.sendMessage("Â§6[TP] Â§e" + player.getName() + " Â§azostal przeteleportowany do Â§e"
+                                        + targetPlayer.getName() + "Â§e!");
+                                player.sendMessage(
+                                        "Â§6[TP] Â§aZostales przeteleportowany do Â§e" + targetPlayer.getName() + "Â§a!");
+                                targetPlayer.sendMessage(
+                                        "Â§6[TP] Â§e" + player.getName() + " Â§azostal przeteleportowany do Â§eCiebieÂ§a!");
+                            } else {
+                                p.sendMessage("Â§6[TP] Â§e" + targetPlayer.getName() + " Â§cnie jest online!");
+                            }
+                        } else {
+                            p.sendMessage("Â§6[TP] Â§e" + player.getName() + " Â§cnie jest online!");
+                        }
+                    } else if (args.length == 3) {
 						int x = Integer.parseInt(args[0]);
 						int y = Integer.parseInt(args[1]);
 						int z = Integer.parseInt(args[2]);
 						p.teleport(new Location(p.getLocation().getWorld(), x, y, z));
-						p.sendMessage("§6[TP] §aPrzeteleportowales sie na koordynaty §eX: " + x + "§a, §eY: " + y
-								+ "§a, §eZ: " + z + "§a!");
-					} else if (args.length >= 4) {
-						Player targetPlayer = Bukkit.getPlayer(args[0]);
+                        p.sendMessage("Â§6[TP] Â§aPrzeteleportowales sie na koordynaty Â§eX: " + x + "Â§a, Â§eY: " + y
+                                + "Â§a, Â§eZ: " + z + "Â§a!");
+                    } else if (args.length >= 4) {
+                        Player targetPlayer = Bukkit.getPlayer(args[0]);
 						int x = Integer.parseInt(args[1]);
 						int y = Integer.parseInt(args[2]);
 						int z = Integer.parseInt(args[3]);
@@ -69,21 +72,21 @@ public class TPCommand implements CommandExecutor {
 							World pWorld = p.getLocation().getWorld();
 							if (tpWorld == pWorld) {
 								targetPlayer.teleport(new Location(p.getLocation().getWorld(), x, y, z));
-								targetPlayer.sendMessage("§6[TP] §aPrzeteleportowales sie na koordynaty §eX: " + x
-										+ "§a, §eY: " + y + "§a, §eZ: " + z + "§a!");
-								targetPlayer.sendMessage("§6[TP] §aPrzeteleportowano gracza na koordynaty §eX: " + x
-										+ "§a, §eY: " + y + "§a, §eZ: " + z + "§a!");
-							} else {
-								p.sendMessage("§6[TP] §cTy i gracz musicie byc w tych samych swiatach!");
-							}
-						}
+                                targetPlayer.sendMessage("Â§6[TP] Â§aPrzeteleportowales sie na koordynaty Â§eX: " + x
+                                        + "Â§a, Â§eY: " + y + "Â§a, Â§eZ: " + z + "Â§a!");
+                                targetPlayer.sendMessage("Â§6[TP] Â§aPrzeteleportowano gracza na koordynaty Â§eX: " + x
+                                        + "Â§a, Â§eY: " + y + "Â§a, Â§eZ: " + z + "Â§a!");
+                            } else {
+                                p.sendMessage("Â§6[TP] Â§cTy i gracz musicie byc w tych samych swiatach!");
+                            }
+                        }
 					} else {
-						p.sendMessage("§6[TP] §cZa malo argumentow! Uzycia: /tp <gracz/x> [gracz/y] [z]");
-					}
-				} else {
-					p.sendMessage("§6[TP] §cNie masz pozwolenia!");
-				}
-			} else {
+                        p.sendMessage("Â§6[TP] Â§cZa malo argumentow! Uzycia: /tp <gracz/x> [gracz/y] [z]");
+                    }
+                } else {
+                    p.sendMessage("Â§6[TP] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (args.length == 2) {
 					Player player = sender.getServer().getPlayer(args[0]);
 					Player targetPlayer = sender.getServer().getPlayer(args[1]);
@@ -92,34 +95,34 @@ public class TPCommand implements CommandExecutor {
 
 							Location targetPlayerLocation = targetPlayer.getLocation();
 							player.teleport(targetPlayerLocation);
-							sender.sendMessage("§6[TP] §e" + player.getName() + " §azostal przeteleportowany do §e"
-									+ targetPlayer.getName() + "§e!");
-							player.sendMessage(
-									"§6[TP] §aZostales przeteleportowany do §e" + targetPlayer.getName() + "§a!");
-							targetPlayer.sendMessage(
-									"§6[TP] §e" + player.getName() + " §azostal przeteleportowany do §eCiebie§a!");
-						} else {
-							sender.sendMessage("[TP] §e" + targetPlayer.getName() + " §cnie jest online!");
-						}
-					} else {
-						sender.sendMessage("[TP] §e" + player.getName() + " §cnie jest online!");
-					}
-				} else if (args.length >= 4) {
+                            sender.sendMessage("Â§6[TP] Â§e" + player.getName() + " Â§azostal przeteleportowany do Â§e"
+                                    + targetPlayer.getName() + "Â§e!");
+                            player.sendMessage(
+                                    "Â§6[TP] Â§aZostales przeteleportowany do Â§e" + targetPlayer.getName() + "Â§a!");
+                            targetPlayer.sendMessage(
+                                    "Â§6[TP] Â§e" + player.getName() + " Â§azostal przeteleportowany do Â§eCiebieÂ§a!");
+                        } else {
+                            sender.sendMessage("[TP] Â§e" + targetPlayer.getName() + " Â§cnie jest online!");
+                        }
+                    } else {
+                        sender.sendMessage("[TP] Â§e" + player.getName() + " Â§cnie jest online!");
+                    }
+                } else if (args.length >= 4) {
 					Player targetPlayer = Bukkit.getPlayer(args[0]);
 					int x = Integer.parseInt(args[1]);
 					int y = Integer.parseInt(args[2]);
 					int z = Integer.parseInt(args[3]);
 					if (targetPlayer.isOnline()) {
 						targetPlayer.teleport(new Location(targetPlayer.getLocation().getWorld(), x, y, z));
-						targetPlayer.sendMessage("§6[TP] §aPrzeteleportowales sie na koordynaty §eX: " + x + "§a, §eY: "
-								+ y + "§a, §eZ: " + z + "§a!");
-						targetPlayer.sendMessage("§6[TP] §aPrzeteleportowano gracza na koordynaty §eX: " + x
-								+ "§a, §eY: " + y + "§a, §eZ: " + z + "§a!");
-					}
-				} else {
-					sender.sendMessage("§6[TP] §cZa malo argumentow! Uzycia: /tp <gracz/x> [gracz/y] [z]");
-				}
-			}
+                        targetPlayer.sendMessage("Â§6[TP] Â§aPrzeteleportowales sie na koordynaty Â§eX: " + x + "Â§a, Â§eY: "
+                                + y + "Â§a, Â§eZ: " + z + "Â§a!");
+                        targetPlayer.sendMessage("Â§6[TP] Â§aPrzeteleportowano gracza na koordynaty Â§eX: " + x
+                                + "Â§a, Â§eY: " + y + "Â§a, Â§eZ: " + z + "Â§a!");
+                    }
+                } else {
+                    sender.sendMessage("Â§6[TP] Â§cZa malo argumentow! Uzycia: /tp <gracz/x> [gracz/y] [z]");
+                }
+            }
 		}
 
 		return false;

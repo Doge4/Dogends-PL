@@ -1,8 +1,11 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.teleportation.spawn;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -17,8 +20,8 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.scheduler.BukkitTask;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * 
@@ -72,14 +75,14 @@ public class Spawn implements Listener, CommandExecutor {
 					Location spawn = new Location(Bukkit.getWorld("world"), -954.5, 29, -594.5, 90, 0);
 					if (Ranks.isOtherRank(p)) {
 						if (!cooldown.contains(p)) {
-							p.sendMessage("§6[TP] §aPoczekaj i nie ruszaj sie przez 20 sekund!");
-							teleportPlayerWithDelay(p, 20, spawn, "§6[TP] §aZostales przeteleportowany na spawn!");
+							p.sendMessage("Â§6[TP] Â§aPoczekaj i nie ruszaj sie przez 20 sekund!");
+							teleportPlayerWithDelay(p, 20, spawn, "Â§6[TP] Â§aZostales przeteleportowany na spawn!");
 						} else {
-							p.sendMessage("§6[TP] §cMusisz poczekac 5 minut przed ponowna teleportacja!");
+							p.sendMessage("Â§6[TP] Â§cMusisz poczekac 5 minut przed ponowna teleportacja!");
 						}
 					} else {
 						p.teleport(spawn);
-						p.sendMessage("§6[TP] §aZostales przeteleportowany na spawn!");
+						p.sendMessage("Â§6[TP] Â§aZostales przeteleportowany na spawn!");
 					}
 				} else {
 					Location spawn = new Location(Bukkit.getWorld("world"), -954.5, 29, -594.5, 90, 0);
@@ -88,15 +91,15 @@ public class Spawn implements Listener, CommandExecutor {
 						if (targetPlayer.isOnline()) {
 							if (Ranks.isOtherRank(targetPlayer)) {
 								targetPlayer.teleport(spawn);
-								targetPlayer.sendMessage("§6[TP] §aZostales przeteleportowany na spawn!");
-								p.sendMessage("§6[TP] §aGracz przeteleportowany!");
+								targetPlayer.sendMessage("Â§6[TP] Â§aZostales przeteleportowany na spawn!");
+								p.sendMessage("Â§6[TP] Â§aGracz przeteleportowany!");
 							} else {
 								p.sendMessage(
-										"§6[TP] §cNie mozesz przeteleportowac tego gracza na spawn! Ten gracz moze przeteleportowac sie sam.");
+										"Â§6[TP] Â§cNie mozesz przeteleportowac tego gracza na spawn! Ten gracz moze przeteleportowac sie sam.");
 							}
 						}
 					} else {
-						p.sendMessage("§6[TP] §cNie masz pozwolenia!");
+						p.sendMessage("Â§6[TP] Â§cNie masz pozwolenia!");
 					}
 				}
 			} else {
@@ -106,11 +109,11 @@ public class Spawn implements Listener, CommandExecutor {
 					if (targetPlayer.isOnline()) {
 						if (Ranks.isOtherRank(targetPlayer)) {
 							targetPlayer.teleport(spawn);
-							targetPlayer.sendMessage("§6[TP] §aZostales przeteleportowany na spawn!");
-							sender.sendMessage("§6[TP] §aGracz przeteleportowany!");
+							targetPlayer.sendMessage("Â§6[TP] Â§aZostales przeteleportowany na spawn!");
+							sender.sendMessage("Â§6[TP] Â§aGracz przeteleportowany!");
 						} else {
 							sender.sendMessage(
-									"§6[TP] §cNie mozesz przeteleportowac tego gracza na spawn! Ten gracz moze przeteleportowac sie sam.");
+									"Â§6[TP] Â§cNie mozesz przeteleportowac tego gracza na spawn! Ten gracz moze przeteleportowac sie sam.");
 						}
 					}
 				}
@@ -125,7 +128,7 @@ public class Spawn implements Listener, CommandExecutor {
 			Player player = (Player) event.getEntity();
 			if (playerTeleportLocation.get(player) != null) {
 				playerTeleportLocation.remove(player).cancel();
-				player.sendMessage("§6[TP] §cTeleportacja zostala przerwana!");
+				player.sendMessage("Â§6[TP] Â§cTeleportacja zostala przerwana!");
 			}
 		}
 	}
@@ -139,7 +142,7 @@ public class Spawn implements Listener, CommandExecutor {
 			Player player = event.getPlayer();
 			if (playerTeleportLocation.get(player) != null) {
 				playerTeleportLocation.remove(player).cancel();
-				player.sendMessage("§6[TP] §cTeleportacja zostala przerwana!");
+				player.sendMessage("Â§6[TP] Â§cTeleportacja zostala przerwana!");
 			}
 		}
 	}

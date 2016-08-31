@@ -1,7 +1,11 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.ban;
 
-import java.util.HashMap;
-
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,8 +15,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerLoginEvent.Result;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
+import java.util.HashMap;
 
 /**
  * 
@@ -22,10 +25,11 @@ import me.woulfiee.server.chat.ranks.Ranks;
 public class BanCommand implements CommandExecutor, Listener {
 
 	static String reason;
+	public HashMap<String, String> banned = new HashMap<>();
 
 	/**
 	 * Gets a banned player's ban reason
-	 * 
+	 *
 	 * @param name
 	 * @return ban reason
 	 */
@@ -36,7 +40,7 @@ public class BanCommand implements CommandExecutor, Listener {
 
 	/**
 	 * Checks if a player is banned
-	 * 
+	 *
 	 * @param name
 	 * @return true, if player is banned, otherwise false
 	 */
@@ -48,8 +52,6 @@ public class BanCommand implements CommandExecutor, Listener {
 		}
 		return false;
 	}
-
-	public HashMap<String, String> banned = new HashMap<>();
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -68,19 +70,19 @@ public class BanCommand implements CommandExecutor, Listener {
 							setReason(targetPlayer.getName(), reason, p.getName());
 							if (targetPlayer.isOnline()) {
 								targetPlayer.kickPlayer(
-										"§6§lDOGENDS\n\n        §cZostales zbanowany do odwolania! \n\n\nBanujacy: §e"
+										"Â§6Â§lDOGENDS\n\n        Â§cZostales zbanowany do odwolania! \n\n\nBanujacy: Â§e"
 												+ Dogends.getMain().getConfig()
 														.getString("Banned." + p.getName() + ".Who")
-												+ "\n§cPowod: §e" + getReason(p.getName()) + "§c!");
+												+ "\nÂ§cPowod: Â§e" + getReason(p.getName()) + "Â§c!");
 							}
 						} else {
-							sender.sendMessage("§6[Ban] §cNie mozesz zbanowac tego gracza!");
+							sender.sendMessage("Â§6[Ban] Â§cNie mozesz zbanowac tego gracza!");
 						}
 					} else {
-						sender.sendMessage("§6[Ban] §cZa malo argumentow, musisz podac gracza i powod!");
+						sender.sendMessage("Â§6[Ban] Â§cZa malo argumentow, musisz podac gracza i powod!");
 					}
 				} else {
-					sender.sendMessage("§6[Ban] §cNie masz pozwolenia!");
+					sender.sendMessage("Â§6[Ban] Â§cNie masz pozwolenia!");
 				}
 
 			} else {
@@ -94,10 +96,10 @@ public class BanCommand implements CommandExecutor, Listener {
 					setReason(targetPlayer.getName(), reason, sender.getName());
 					if (targetPlayer.isOnline())
 						targetPlayer.kickPlayer(
-								"§6§lDOGENDS\n\n       §cZostales zbanowany do odwolania! \n\n\nBanujacy: §eCONSOLE\n§cPowod: §e"
-										+ getReason(targetPlayer.getName()) + "§c!");
+								"Â§6Â§lDOGENDS\n\n       Â§cZostales zbanowany do odwolania! \n\n\nBanujacy: Â§eCONSOLE\nÂ§cPowod: Â§e"
+										+ getReason(targetPlayer.getName()) + "Â§c!");
 				} else {
-					sender.sendMessage("§6[Ban] §cZa malo argumentow!");
+					sender.sendMessage("Â§6[Ban] Â§cZa malo argumentow!");
 				}
 			}
 		}
@@ -109,9 +111,9 @@ public class BanCommand implements CommandExecutor, Listener {
 		if (isBanned(e.getPlayer().getName())) {
 
 			e.disallow(Result.KICK_BANNED,
-					"§6§lDOGENDS\n\n       §cZostales zbanowany do odwolania! \n\n\nBanujacy: §e"
+					"Â§6Â§lDOGENDS\n\n       Â§cZostales zbanowany do odwolania! \n\n\nBanujacy: Â§e"
 							+ Dogends.getMain().getConfig().getString("Banned." + e.getPlayer().getName() + ".Who")
-							+ "\n§cPowod: §e" + getReason(e.getPlayer().getName()) + "§c!");
+							+ "\nÂ§cPowod: Â§e" + getReason(e.getPlayer().getName()) + "Â§c!");
 			System.out.println("[DBAN] Zbanowany gracz, " + e.getPlayer().getDisplayName()
 					+ ", chcial sie polaczyc z serwerem. Polaczenie odrzucono.");
 		} else {

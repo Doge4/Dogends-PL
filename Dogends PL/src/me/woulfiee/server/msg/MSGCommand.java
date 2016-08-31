@@ -1,13 +1,17 @@
-package me.woulfiee.server.msg;
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
 
-import java.util.HashMap;
-import java.util.Random;
+package me.woulfiee.server.msg;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.HashMap;
+import java.util.Random;
 
 /**
  * 
@@ -16,11 +20,11 @@ import org.bukkit.entity.Player;
  */
 public class MSGCommand implements CommandExecutor {
 
+	public HashMap<String, String> lastmsgto = new HashMap<String, String>();
+
 	public static String getRandomNumber(String[] arr) {
 		return arr[(new Random()).nextInt(arr.length)];
 	}
-
-	public HashMap<String, String> lastmsgto = new HashMap<String, String>();
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -34,12 +38,12 @@ public class MSGCommand implements CommandExecutor {
 					String randomMessage = getRandomNumber(messages);
 					if (!args[0].equalsIgnoreCase("CONSOLE")) {
 						if (targetPlayer != null) {
-							player.sendMessage("§6§lTy -> " + targetPlayer.getName() + " >> §e§l" + randomMessage);
-							targetPlayer.sendMessage("§6§l" + player.getName() + " -> Ty >> §e§l" + randomMessage);
+							player.sendMessage("Â§6Â§lTy -> " + targetPlayer.getName() + " >> Â§eÂ§l" + randomMessage);
+							targetPlayer.sendMessage("Â§6Â§l" + player.getName() + " -> Ty >> Â§eÂ§l" + randomMessage);
 							lastmsgto.replace(player.getName(), targetPlayer.getName());
 						}
 					} else {
-						player.sendMessage("§6§lTy -> Konsola >> §e§l" + randomMessage);
+						player.sendMessage("Â§6Â§lTy -> Konsola >> Â§eÂ§l" + randomMessage);
 						System.out.println(player.getName() + " -> Ty >> " + randomMessage);
 						lastmsgto.replace(player.getName(), "CONSOLE");
 					}
@@ -52,18 +56,18 @@ public class MSGCommand implements CommandExecutor {
 					if (!args[0].equalsIgnoreCase("CONSOLE")) {
 						if (targetPlayer != null) {
 							player.sendMessage(
-									"§6§lTy -> " + targetPlayer.getName() + " >> §e§l" + str.toString().trim());
+									"Â§6Â§lTy -> " + targetPlayer.getName() + " >> Â§eÂ§l" + str.toString().trim());
 							targetPlayer
-									.sendMessage("§6§l" + player.getName() + " -> Ty >> §e§l" + str.toString().trim());
+									.sendMessage("Â§6Â§l" + player.getName() + " -> Ty >> Â§eÂ§l" + str.toString().trim());
 							lastmsgto.replace(player.getName(), targetPlayer.getName());
 						}
 					} else {
-						player.sendMessage("§6§lTy -> Konsola >> §e§l" + str.toString().trim());
+						player.sendMessage("Â§6Â§lTy -> Konsola >> Â§eÂ§l" + str.toString().trim());
 						System.out.println(player.getName() + " -> Ty >> " + str.toString().trim());
 						lastmsgto.replace(player.getName(), "CONSOLE");
 					}
 				} else {
-					player.sendMessage("§6[MSG] §cZa malo argumentow! Uzycie: /msg <nick> [wiadomosc]");
+					player.sendMessage("Â§6[MSG] Â§cZa malo argumentow! Uzycie: /msg <nick> [wiadomosc]");
 				}
 			} else {
 				if (args.length >= 2) {
@@ -73,7 +77,7 @@ public class MSGCommand implements CommandExecutor {
 						str.append(args[i] + " ");
 					}
 					System.out.println("Ty -> " + targetPlayer.getName() + " >> " + str.toString().trim());
-					targetPlayer.sendMessage("§e§lKonsola §6§l-> §e§lTy §6§l>> " + str.toString().trim());
+					targetPlayer.sendMessage("Â§eÂ§lKonsola Â§6Â§l-> Â§eÂ§lTy Â§6Â§l>> " + str.toString().trim());
 				} else {
 					sender.sendMessage("[MSG] Za malo argumentow! Uzycie: /msg <nick> <wiadomosc>");
 				}
@@ -89,14 +93,14 @@ public class MSGCommand implements CommandExecutor {
 							for (int i = 0; i < args.length; i++) {
 								str.append(args[i] + " ");
 							}
-							player.sendMessage("§6§lTy -> " + player.getName() + " >> §e§l" + str.toString().trim());
+							player.sendMessage("Â§6Â§lTy -> " + player.getName() + " >> Â§eÂ§l" + str.toString().trim());
 							targetPlayer
-									.sendMessage("§6§l" + player.getName() + " -> Ty >> §e§l" + str.toString().trim());
+									.sendMessage("Â§6Â§l" + player.getName() + " -> Ty >> Â§eÂ§l" + str.toString().trim());
 						} else {
-							player.sendMessage("§6[MSG] §cTwoj korespondent nie jest juz online!");
+							player.sendMessage("Â§6[MSG] Â§cTwoj korespondent nie jest juz online!");
 						}
 					} else {
-						player.sendMessage("§6[MSG] §cJeszcze nie napisales zadnej wiadomosci.");
+						player.sendMessage("Â§6[MSG] Â§cJeszcze nie napisales zadnej wiadomosci.");
 					}
 				}
 			}

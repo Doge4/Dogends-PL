@@ -1,13 +1,16 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.broadcast.commands;
 
+import me.woulfiee.server.broadcast.Broadcaster;
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.woulfiee.server.broadcast.Broadcaster;
-import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -24,39 +27,39 @@ public class ToggleBroadcast extends Broadcaster implements CommandExecutor {
 					if (running == 1) {
 						Bukkit.getScheduler().cancelTask(tid);
 						running = 0;
-						sender.sendMessage("§6[Broadcast] §aWylaczyles broadcast!");
-						for (Player p : Bukkit.getOnlinePlayers())
-							if (Ranks.isStaff(p)) {
-								p.sendMessage("§6[Broadcast] §aBroadcast zostal wylaczony!");
-							}
-					} else {
+                        sender.sendMessage("Â§6[Broadcast] Â§aWylaczyles broadcast!");
+                        for (Player p : Bukkit.getOnlinePlayers())
+                            if (Ranks.isStaff(p)) {
+                                p.sendMessage("Â§6[Broadcast] Â§aBroadcast zostal wylaczony!");
+                            }
+                    } else {
 						runBroadcast();
 						running = 1;
-						sender.sendMessage("§6[Broadcast] §aWlaczyles broadcast!");
-						for (Player p : Bukkit.getOnlinePlayers())
-							if (Ranks.isStaff(p)) {
-								p.sendMessage("§6[Broadcast] §aBroadcast zostal wlaczony!");
-							}
-					}
+                        sender.sendMessage("Â§6[Broadcast] Â§aWlaczyles broadcast!");
+                        for (Player p : Bukkit.getOnlinePlayers())
+                            if (Ranks.isStaff(p)) {
+                                p.sendMessage("Â§6[Broadcast] Â§aBroadcast zostal wlaczony!");
+                            }
+                    }
 				}
 			} else {
 				if (running == 1) {
 					Bukkit.getScheduler().cancelTask(tid);
 					running = 0;
-					sender.sendMessage("§6[Broadcast] §aWylaczyles broadcast!");
-					for (Player p : Bukkit.getOnlinePlayers())
-						if (Ranks.isStaff(p)) {
-							p.sendMessage("§6[Broadcast] §aBroadcast zostal wylaczony!");
-						}
-				} else {
+                    sender.sendMessage("Â§6[Broadcast] Â§aWylaczyles broadcast!");
+                    for (Player p : Bukkit.getOnlinePlayers())
+                        if (Ranks.isStaff(p)) {
+                            p.sendMessage("Â§6[Broadcast] Â§aBroadcast zostal wylaczony!");
+                        }
+                } else {
 					runBroadcast();
 					running = 1;
-					sender.sendMessage("§6[Broadcast] §aWylaczyles broadcast!");
-					for (Player p : Bukkit.getOnlinePlayers())
-						if (Ranks.isStaff(p)) {
-							p.sendMessage("§6[Broadcast] §aBroadcast zostal wylaczony!");
-						}
-				}
+                    sender.sendMessage("Â§6[Broadcast] Â§aWylaczyles broadcast!");
+                    for (Player p : Bukkit.getOnlinePlayers())
+                        if (Ranks.isStaff(p)) {
+                            p.sendMessage("Â§6[Broadcast] Â§aBroadcast zostal wylaczony!");
+                        }
+                }
 			}
 		}
 		return false;

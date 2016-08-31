@@ -1,11 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.kick;
 
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -29,19 +32,19 @@ public class KickCommand implements CommandExecutor {
 							Player player = p.getServer().getPlayer(args[0]);
 							if (player != null) {
 								player.kickPlayer(
-										"§6§lDOGENDS\n\n       §cZostales wyrzucony z serwera! \n\n\nWyrzucajacy: §e"
-												+ p.getName() + "\n§cPowod: §e" + str.toString().trim() + "§c!");
+										"Â§6Â§lDOGENDS\n\n       Â§cZostales wyrzucony z serwera! \n\n\nWyrzucajacy: Â§e"
+												+ p.getName() + "\nÂ§cPowod: Â§e" + str.toString().trim() + "Â§c!");
 							} else {
-								sender.sendMessage("§6[Kick] §cTen gracz nie jest online!");
+								sender.sendMessage("Â§6[Kick] Â§cTen gracz nie jest online!");
 							}
 						} else {
-							sender.sendMessage("§6[Kick] §cNie mozesz wyrzucic tego gracza!");
+							sender.sendMessage("Â§6[Kick] Â§cNie mozesz wyrzucic tego gracza!");
 						}
 					} else {
-						sender.sendMessage("§6[Kick] §cZa malo argumentow! Musisz podac gracza i powod!");
+						sender.sendMessage("Â§6[Kick] Â§cZa malo argumentow! Musisz podac gracza i powod!");
 					}
 				} else {
-					sender.sendMessage("§6[Kick] §cNie masz pozwolenia!");
+					sender.sendMessage("Â§6[Kick] Â§cNie masz pozwolenia!");
 				}
 
 			} else {
@@ -52,13 +55,13 @@ public class KickCommand implements CommandExecutor {
 					}
 					Player player = sender.getServer().getPlayer(args[0]);
 					if (player != null) {
-						player.kickPlayer("§6§lDOGENDS\n\n       §cZostales wyrzucony z serwera! \n\n\nWyrzucajacy: §e"
-								+ sender.getName() + "\n§cPowod: §e" + str.toString().trim() + "§c!");
+						player.kickPlayer("Â§6Â§lDOGENDS\n\n       Â§cZostales wyrzucony z serwera! \n\n\nWyrzucajacy: Â§e"
+								+ sender.getName() + "\nÂ§cPowod: Â§e" + str.toString().trim() + "Â§c!");
 					} else {
-						sender.sendMessage("§6[Kick] §cTen gracz nie jest online!");
+						sender.sendMessage("Â§6[Kick] Â§cTen gracz nie jest online!");
 					}
 				} else {
-					sender.sendMessage("§6[Kick] §cZa malo argumentow! Musisz podac gracza i powod!");
+					sender.sendMessage("Â§6[Kick] Â§cZa malo argumentow! Musisz podac gracza i powod!");
 				}
 			}
 		}

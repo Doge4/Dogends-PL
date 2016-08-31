@@ -1,20 +1,18 @@
-package me.woulfiee.server.scoreboard;
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
-import org.bukkit.entity.Player;
-import org.bukkit.scoreboard.DisplaySlot;
-import org.bukkit.scoreboard.Objective;
-import org.bukkit.scoreboard.Score;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.ScoreboardManager;
-import org.bukkit.scoreboard.Team;
+package me.woulfiee.server.scoreboard;
 
 import me.woulfiee.server.Dogends;
 import me.woulfiee.server.chat.ranks.Ranks;
 import me.woulfiee.server.vanish.VanishCommand;
 import net.minecraft.server.v1_8_R3.PlayerConnection;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.entity.Player;
+import org.bukkit.scoreboard.*;
 
 /**
  * 
@@ -63,7 +61,7 @@ public class Sb {
 			p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 
 			manager = Bukkit.getScoreboardManager();
-			obj = getScoreboard(p).registerNewObjective("§6§lDOGENDS", "Dogends Sidebar Scoreboard");
+			obj = getScoreboard(p).registerNewObjective("Â§6Â§lDOGENDS", "Dogends Sidebar Scoreboard");
 
 			Team owners = getScoreboard(p).registerNewTeam("owners");
 			owners.setPrefix(ChatColor.DARK_RED + "" + ChatColor.BOLD + "WLAS " + ChatColor.WHITE);
@@ -114,29 +112,29 @@ public class Sb {
 				}
 			}
 
-			score1 = getObj().getScore("§7§m-----------------------");
+			score1 = getObj().getScore("Â§7Â§m-----------------------");
 			score1.setScore(16);
 
 			score2 = getObj().getScore(
-					"§9Pieniadze: §f" + Dogends.getMain().getConfig().getInt("Tokens." + p.getUniqueId().toString()));
+					"Â§9Pieniadze: Â§f" + Dogends.getMain().getConfig().getInt("Tokens." + p.getUniqueId().toString()));
 			score2.setScore(15);
 
 			score3 = getObj().getScore(" ");
 			score3.setScore(14);
 
 			score4 = getObj().getScore(
-					"§3Poziom: §f" + Dogends.getMain().getConfig().getInt("Levels." + p.getUniqueId().toString()));
+					"Â§3Poziom: Â§f" + Dogends.getMain().getConfig().getInt("Levels." + p.getUniqueId().toString()));
 			score4.setScore(13);
 
 			score5 = getObj().getScore("  ");
 			score5.setScore(12);
 
 			if (updatetype == ScoreboardUpdateType.NORMAL) {
-				score6 = getObj().getScore("§aGraczy Online: §f" + Bukkit.getServer().getOnlinePlayers().size());
+				score6 = getObj().getScore("Â§aGraczy Online: Â§f" + Bukkit.getServer().getOnlinePlayers().size());
 			} else if (updatetype == ScoreboardUpdateType.QUIT) {
-				score6 = getObj().getScore("§aGraczy Online: §f" + (Bukkit.getServer().getOnlinePlayers().size() - 1));
+				score6 = getObj().getScore("Â§aGraczy Online: Â§f" + (Bukkit.getServer().getOnlinePlayers().size() - 1));
 			} else {
-				score6 = getObj().getScore("§aGraczy Online: §f"
+				score6 = getObj().getScore("Â§aGraczy Online: Â§f"
 						+ (Bukkit.getServer().getOnlinePlayers().size() - VanishCommand.vanished.size()));
 			}
 			score6.setScore(11);
@@ -145,32 +143,32 @@ public class Sb {
 			score7.setScore(10);
 
 			if (Ranks.isAdmin(p)) {
-				score8 = getObj().getScore("§6Ranga: §fAdmin");
+				score8 = getObj().getScore("Â§6Ranga: Â§fAdmin");
 			} else if (Ranks.isBuilder(p)) {
-				score8 = getObj().getScore("§6Ranga: §fBudowniczy");
+				score8 = getObj().getScore("Â§6Ranga: Â§fBudowniczy");
 			} else if (Ranks.isVip(p)) {
-				score8 = getObj().getScore("§6Ranga: §fPiesel");
+				score8 = getObj().getScore("Â§6Ranga: Â§fPiesel");
 			} else if (Ranks.isMod(p)) {
-				score8 = getObj().getScore("§6Ranga: §fModerator");
+				score8 = getObj().getScore("Â§6Ranga: Â§fModerator");
 			} else if (Ranks.isOwner(p)) {
-				score8 = getObj().getScore("§6Ranga: §fWlasciciel");
+				score8 = getObj().getScore("Â§6Ranga: Â§fWlasciciel");
 			} else if (Ranks.isPlayer(p)) {
-				score8 = getObj().getScore("§6Ranga: §fGracz");
+				score8 = getObj().getScore("Â§6Ranga: Â§fGracz");
 			} else if (Ranks.isYoutuber(p)) {
-				score8 = getObj().getScore("§6Ranga: §fYouTuber");
+				score8 = getObj().getScore("Â§6Ranga: Â§fYouTuber");
 			} else {
-				score8 = getObj().getScore("§6Ranga: §fGracz");
+				score8 = getObj().getScore("Â§6Ranga: Â§fGracz");
 			}
 			score8.setScore(9);
 
-			score12 = getObj().getScore(" §7§m---------------------");
+			score12 = getObj().getScore(" Â§7Â§m---------------------");
 			score12.setScore(5);
 
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
 
 			for (Player online : Bukkit.getServer().getOnlinePlayers())
-				PacketUtils.sendTabHF(online, "§6§lDOGENDS",
-						"§eNasza strona internetowa jest w budowie!\n Niedlugo bedzie dostepna! :)");
+				PacketUtils.sendTabHF(online, "Â§6Â§lDOGENDS",
+						"Â§eNasza strona internetowa jest w budowie!\n Niedlugo bedzie dostepna! :)");
 
 			p.setScoreboard(getScoreboard(p));
 		}

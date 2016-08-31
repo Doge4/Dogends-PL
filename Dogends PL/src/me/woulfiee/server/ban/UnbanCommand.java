@@ -1,13 +1,16 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.ban;
 
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -27,24 +30,24 @@ public class UnbanCommand implements CommandExecutor {
 						Player targetPlayer = sender.getServer().getPlayerExact(args[0]);
 						Dogends.getMain().getConfig().set("Banned." + targetPlayer.getName(), null);
 						Dogends.getMain().saveConfig();
-						p.sendMessage("§6[Ban] §aGracz odbanowany!");
+                        p.sendMessage("Â§6[Ban] Â§aGracz odbanowany!");
 
 					} else {
-						p.sendMessage("§6[Ban] §cZa malo argumentow!");
-					}
-				} else {
-					p.sendMessage("§6[Ban] §cNie masz pozwolenia!");
-				}
-			} else {
+                        p.sendMessage("Â§6[Ban] Â§cZa malo argumentow!");
+                    }
+                } else {
+                    p.sendMessage("Â§6[Ban] Â§cNie masz pozwolenia!");
+                }
+            } else {
 				if (args.length == 1) {
 					OfflinePlayer targetPlayer = sender.getServer().getOfflinePlayer(args[0]);
 					Dogends.getMain().getConfig().set("Banned." + targetPlayer.getName(), null);
 					Dogends.getMain().saveConfig();
-					sender.sendMessage("§6[Ban] §aGracz odbanowany!");
-				} else {
-					sender.sendMessage("§6[Ban] §cZa malo argumentow!");
-				}
-			}
+                    sender.sendMessage("Â§6[Ban] Â§aGracz odbanowany!");
+                } else {
+                    sender.sendMessage("Â§6[Ban] Â§cZa malo argumentow!");
+                }
+            }
 		}
 		return false;
 	}

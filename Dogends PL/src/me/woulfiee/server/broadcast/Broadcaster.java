@@ -1,18 +1,15 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.broadcast;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.LineNumberReader;
-
+import me.woulfiee.server.Dogends;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
-import me.woulfiee.server.Dogends;
+import java.io.*;
 
 /**
  * 
@@ -33,11 +30,11 @@ public class Broadcaster {
 		for (int i = 0; i < currentLine; ++i)
 			br.readLine();
 		String line = br.readLine();
-		line = line.replaceAll("&", "ง");
-		for (Player p : Bukkit.getOnlinePlayers()) {
-			p.sendMessage("ง8งl>>> งr" + line);
-			p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1, 1);
-		}
+        line = line.replaceAll("&", "ยง");
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            p.sendMessage("ยง8ยงl>>> ยงr" + line);
+            p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1, 1);
+        }
 		LineNumberReader lnr = new LineNumberReader(new FileReader(new File(fileName)));
 		lnr.skip(Long.MAX_VALUE);
 		int lastLine = lnr.getLineNumber();

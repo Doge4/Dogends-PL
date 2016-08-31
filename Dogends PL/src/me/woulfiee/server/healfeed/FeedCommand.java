@@ -1,11 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.healfeed;
 
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.woulfiee.server.chat.ranks.Ranks;
 
 /**
  * 
@@ -19,26 +22,26 @@ public class FeedCommand implements CommandExecutor {
 
 		if (cmd.getName().equalsIgnoreCase("feed")) {
 			if (!(sender instanceof Player)) {
-				sender.sendMessage("§6[Nakarm] §cTylko gracze moga uzywac tej komendy!");
+				sender.sendMessage("Â§6[Nakarm] Â§cTylko gracze moga uzywac tej komendy!");
 			} else {
 				Player p = (Player) sender;
 				if (!(Ranks.isStaff(p))) {
-					p.sendMessage("§6[Nakarm] §cNie masz pozwolenia!");
+					p.sendMessage("Â§6[Nakarm] Â§cNie masz pozwolenia!");
 				} else {
 					if (args.length == 0) {
 						p.setHealth(20);
 						p.setFoodLevel(20);
-						p.sendMessage("§6[Nakarm] §aZostales nakarmiony!");
+						p.sendMessage("Â§6[Nakarm] Â§aZostales nakarmiony!");
 
 					} else if (args.length == 1) {
 						Player tp = p.getServer().getPlayer(args[0]);
 						if (tp != null) {
 							tp.setHealth(20);
 							tp.setFoodLevel(20);
-							p.sendMessage("§6[Nakarm] §aNakarmiles gracza §e" + tp.getName() + "§a!");
-							tp.sendMessage("§6[Nakarm] §aZostales nakarmiony!");
+							p.sendMessage("Â§6[Nakarm] Â§aNakarmiles gracza Â§e" + tp.getName() + "Â§a!");
+							tp.sendMessage("Â§6[Nakarm] Â§aZostales nakarmiony!");
 						} else {
-							p.sendMessage("§6[Nakarm] §cTen gracz nie jest online!");
+							p.sendMessage("Â§6[Nakarm] Â§cTen gracz nie jest online!");
 						}
 					}
 				}

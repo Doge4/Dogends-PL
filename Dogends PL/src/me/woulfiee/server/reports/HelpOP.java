@@ -1,15 +1,18 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.reports;
 
-import java.util.List;
-
+import me.woulfiee.server.Dogends;
+import me.woulfiee.server.chat.ranks.Ranks;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.woulfiee.server.Dogends;
-import me.woulfiee.server.chat.ranks.Ranks;
+import java.util.List;
 
 public class HelpOP implements CommandExecutor {
 
@@ -25,8 +28,8 @@ public class HelpOP implements CommandExecutor {
 					}
 					for (Player p : Bukkit.getOnlinePlayers()) {
 						if (Ranks.isStaff(p)) {
-							p.sendMessage("§6§l" + player.getName() + " -> Administracja >> §e§l"
-									+ builder.toString().trim());
+                            p.sendMessage("Â§6Â§l" + player.getName() + " -> Administracja >> Â§eÂ§l"
+                                    + builder.toString().trim());
 
 						}
 					}
@@ -34,11 +37,11 @@ public class HelpOP implements CommandExecutor {
 					reports.add(builder.toString().trim());
 					Dogends.getMain().getConfig().set("Reports", reports);
 					Dogends.getMain().saveConfig();
-					player.sendMessage("§6§lTy -> Administracja >> §e§l" + builder.toString().trim());
-				} else {
-					player.sendMessage("§6[HelpOP] §cZa malo argumentow! Uzycie: §e/helpop <wiadomosc>.");
-				}
-			} else {
+                    player.sendMessage("Â§6Â§lTy -> Administracja >> Â§eÂ§l" + builder.toString().trim());
+                } else {
+                    player.sendMessage("Â§6[HelpOP] Â§cZa malo argumentow! Uzycie: Â§e/helpop <wiadomosc>.");
+                }
+            } else {
 				sender.sendMessage("Tylko gracze moga uzywac tej komedy!");
 			}
 
@@ -53,23 +56,23 @@ public class HelpOP implements CommandExecutor {
 						}
 						if (Bukkit.getPlayer(args[0]) != null) {
 							Player targetPlayer = Bukkit.getPlayer(args[0]);
-							targetPlayer.sendMessage("§6§lAdministracja -> Ty >> §e§l" + builder.toString().trim());
-							for (Player onlineplayers : Bukkit.getOnlinePlayers()) {
-								if (Ranks.isStaff(onlineplayers)) {
-									onlineplayers.sendMessage("§6§lAdministracja -> " + targetPlayer.getName()
-											+ " >> §e§l" + builder.toString().trim());
-								}
-							}
+                            targetPlayer.sendMessage("Â§6Â§lAdministracja -> Ty >> Â§eÂ§l" + builder.toString().trim());
+                            for (Player onlineplayers : Bukkit.getOnlinePlayers()) {
+                                if (Ranks.isStaff(onlineplayers)) {
+                                    onlineplayers.sendMessage("Â§6Â§lAdministracja -> " + targetPlayer.getName()
+                                            + " >> Â§eÂ§l" + builder.toString().trim());
+                                }
+                            }
 						} else {
-							player.sendMessage("§6[HelpOP] §cGracza nie ma na serwerze!");
-						}
-					} else {
-						player.sendMessage("§6[HelpOP] §cZa malo argumentow! Uzycie: §e/hr <gracz> <wiadomosc>");
-					}
-				} else {
-					player.sendMessage("§6[HelpOP] §cNie masz pozwolenia");
-				}
-			} else {
+                            player.sendMessage("Â§6[HelpOP] Â§cGracza nie ma na serwerze!");
+                        }
+                    } else {
+                        player.sendMessage("Â§6[HelpOP] Â§cZa malo argumentow! Uzycie: Â§e/hr <gracz> <wiadomosc>");
+                    }
+                } else {
+                    player.sendMessage("Â§6[HelpOP] Â§cNie masz pozwolenia");
+                }
+            } else {
 				if (args.length > 1) {
 					StringBuilder builder = new StringBuilder();
 					for (int i = 1; i < args.length; i++) {
@@ -77,21 +80,21 @@ public class HelpOP implements CommandExecutor {
 					}
 					if (Bukkit.getPlayer(args[0]) != null) {
 						Player targetPlayer = Bukkit.getPlayer(args[0]);
-						targetPlayer.sendMessage("§6§lAdministracja -> Ty >> §e§l" + builder.toString().trim());
-						for (Player onlineplayers : Bukkit.getOnlinePlayers()) {
-							if (Ranks.isStaff(onlineplayers)) {
-								onlineplayers.sendMessage("§6§lAdministracja -> " + targetPlayer.getName() + " >> §e§l"
-										+ builder.toString().trim());
-							}
+                        targetPlayer.sendMessage("Â§6Â§lAdministracja -> Ty >> Â§eÂ§l" + builder.toString().trim());
+                        for (Player onlineplayers : Bukkit.getOnlinePlayers()) {
+                            if (Ranks.isStaff(onlineplayers)) {
+                                onlineplayers.sendMessage("Â§6Â§lAdministracja -> " + targetPlayer.getName() + " >> Â§eÂ§l"
+                                        + builder.toString().trim());
+                            }
 						}
 						System.out.println("[HelpOP] " + targetPlayer.getName() + ": " + builder.toString().trim());
 					} else {
-						sender.sendMessage("§6[HelpOP] §cGracza nie ma na serwerze!");
-					}
-				} else {
-					sender.sendMessage("§6[HelpOP] §cZa malo argumentow! Uzycie: §e/hr <gracz> <wiadomosc>");
-				}
-			}
+                        sender.sendMessage("Â§6[HelpOP] Â§cGracza nie ma na serwerze!");
+                    }
+                } else {
+                    sender.sendMessage("Â§6[HelpOP] Â§cZa malo argumentow! Uzycie: Â§e/hr <gracz> <wiadomosc>");
+                }
+            }
 		}
 		return false;
 	}

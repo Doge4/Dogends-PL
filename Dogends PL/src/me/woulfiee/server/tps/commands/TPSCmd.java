@@ -1,12 +1,15 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.tps.commands;
 
+import me.woulfiee.server.chat.ranks.Ranks;
+import me.woulfiee.server.tps.Lag;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import me.woulfiee.server.chat.ranks.Ranks;
-import me.woulfiee.server.tps.Lag;
 
 /**
  * 
@@ -22,17 +25,17 @@ public class TPSCmd implements CommandExecutor {
 		if (label.equalsIgnoreCase("tps")) {
 			if (sender instanceof Player) {
 				if (Ranks.isStaff(((Player) sender))) {
-					sender.sendMessage("§6[TPS] §aTPS serwera: §e" + String.valueOf(tps).substring(0, 5));
-				}
-			} else {
+                    sender.sendMessage("Â§6[TPS] Â§aTPS serwera: Â§e" + String.valueOf(tps).substring(0, 5));
+                }
+            } else {
 				sender.sendMessage("[TPS] TPS serwera: " + String.valueOf(tps).substring(0, 5));
 			}
 		} else if (label.equalsIgnoreCase("tpspercentage")) {
 			if (sender instanceof Player) {
 				if (Ranks.isStaff(((Player) sender))) {
-					sender.sendMessage("§6[TPS] §aLagi serwera: §f" + String.valueOf(percentage).substring(0, 5));
-				}
-			} else {
+                    sender.sendMessage("Â§6[TPS] Â§aLagi serwera: Â§f" + String.valueOf(percentage).substring(0, 5));
+                }
+            } else {
 				sender.sendMessage("[TPS] Lagi serwera: " + String.valueOf(percentage).substring(0, 5));
 			}
 		}

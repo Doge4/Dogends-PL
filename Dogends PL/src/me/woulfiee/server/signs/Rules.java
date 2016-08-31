@@ -1,3 +1,7 @@
+/*******************************************************************************
+ * Copyright (c) 31.8.2016 by Woulfiee
+ ******************************************************************************/
+
 package me.woulfiee.server.signs;
 
 import org.apache.commons.lang.StringUtils;
@@ -26,15 +30,15 @@ public class Rules implements Listener {
 					if ((loc.getX() == -749) && (loc.getY() == 45) && (loc.getZ() == 528)) {
 						if (block.getType() == Material.SIGN_POST || block.getType() == Material.WALL_SIGN) {
 							StringBuilder builder = new StringBuilder(
-									StringUtils.center("§6 REGULY ", 240, "§e§m-") + "\n");
-							builder.append("§61. §eObrazanie graczy, jak i administracji jest zakazane.\n");
-							builder.append(
-									"§62. §eKorzystanie z jakichkolwiek cheatow i zhackowanych klientow jest zabronione i grozi banem.\n");
-							builder.append(
-									"§63. §eNadmierne spamowanie, przeklinanie na czacie jest niedopuszczalne i rowniez grozi banem. Przy czym jakakolwiek proba obejscia cenzury skutkuje wyciszeniem.\n");
-							builder.append(
-									"§64. §eModeratorzy nie zawsze maja racje. Jesli uwazasz, ze nieslusznie dostales bana skontaktuj sie z administratorem.\n");
-							e.getPlayer().sendMessage(builder.toString());
+                                    StringUtils.center("Â§6 REGULY ", 240, "Â§eÂ§m-") + "\n");
+                            builder.append("Â§61. Â§eObrazanie graczy, jak i administracji jest zakazane.\n");
+                            builder.append(
+                                    "Â§62. Â§eKorzystanie z jakichkolwiek cheatow i zhackowanych klientow jest zabronione i grozi banem.\n");
+                            builder.append(
+                                    "Â§63. Â§eNadmierne spamowanie, przeklinanie na czacie jest niedopuszczalne i rowniez grozi banem. Przy czym jakakolwiek proba obejscia cenzury skutkuje wyciszeniem.\n");
+                            builder.append(
+                                    "Â§64. Â§eModeratorzy nie zawsze maja racje. Jesli uwazasz, ze nieslusznie dostales bana skontaktuj sie z administratorem.\n");
+                            e.getPlayer().sendMessage(builder.toString());
 
 						}
 					}
