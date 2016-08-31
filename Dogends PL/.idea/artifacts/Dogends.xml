@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Dogends">
+    <output-path>$PROJECT_DIR$/../../../../Pliki/Server/plugins</output-path>
+    <root id="archive" name="Dogends.jar">
+      <element id="module-output" name="Dogends" />
+    </root>
+  </artifact>
+</component>
