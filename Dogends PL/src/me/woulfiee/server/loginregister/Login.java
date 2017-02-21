@@ -43,7 +43,7 @@ public class Login implements CommandExecutor {
 				} else {
 					if (args.length >= 1) {
 						if (player.getName().equals("Woulfiee")) {
-							if (args[0].equals("JezusToMojKrol")) {
+							if (args[0].equals("*****")) {
 								PacketUtils.sendTitle(player, "§6§lDOGENDS");
 								PacketUtils.sendSubtitle(player, "§eWitaj Woulfiee :)");
 
